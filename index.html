@@ -429,10 +429,6 @@
       left: 47%;
       box-shadow: 0 0 22px rgba(214,168,93,.9);
     }
-      to { opacity: .9; transform: scale(1.01); }
-    }
-      to { transform: translateY(-8px) scale(1); }
-    }
 
 
 
@@ -978,6 +974,7 @@
 
     .portfolio-video-item,
     .portfolio-image-item {
+      contain: layout paint style;
       position: relative;
       overflow: hidden;
       border-radius: 26px;
@@ -1026,6 +1023,8 @@
 
     .portfolio-media,
     .portfolio-image {
+      backface-visibility: hidden;
+      transform: translateZ(0);
       position: absolute;
       inset: 0;
       width: 100%;
@@ -1044,59 +1043,6 @@
       background: linear-gradient(180deg, rgba(0,0,0,0), rgba(4,4,5,.84));
       z-index: 2;
       pointer-events: none;
-    }
-
-    .portfolio-video-badge,
-    .portfolio-image-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      z-index: 3;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      font-size: .7rem;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      font-weight: 800;
-      border: 1px solid rgba(255,255,255,.1);
-      background: rgba(8,8,9,.56);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-
-    .portfolio-video-badge::before,
-    .portfolio-image-badge::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--gold-2), var(--gold));
-      box-shadow: 0 0 14px rgba(214,168,93,.7);
-    }
-
-    .portfolio-item-overlay {
-      position: absolute;
-      inset: auto 0 0 0;
-      z-index: 3;
-      padding: 16px 16px 15px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .portfolio-item-overlay strong {
-      font-size: .98rem;
-      line-height: 1.1;
-      letter-spacing: -.02em;
-    }
-
-    .portfolio-item-overlay span {
-      color: rgba(244,241,234,.74);
-      font-size: .84rem;
-      line-height: 1.5;
     }
 
     .portfolio-fallback {
@@ -1976,6 +1922,45 @@
       }
       .reveal { opacity: 1; transform: none; }
     }
+  
+    /* === PORTFOLIO FLICKER FIX === */
+    .portfolio-showcase-card,
+    .portfolio-rail-card,
+    .portfolio-video-item,
+    .portfolio-image-item {
+      -webkit-backdrop-filter: none !important;
+      backdrop-filter: none !important;
+      isolation: isolate;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    .portfolio-showcase-card,
+    .portfolio-rail-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02)), rgba(15,15,16,.96);
+    }
+
+    .portfolio-video-item::before,
+    .portfolio-image-item::before {
+      background:
+        radial-gradient(circle at 20% 18%, rgba(214,168,93,.10), transparent 20%),
+        radial-gradient(circle at 82% 22%, rgba(214,168,93,.07), transparent 22%),
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      opacity: .72;
+    }
+
+    .portfolio-image-item::after,
+    .portfolio-video-item::after {
+      height: 34%;
+      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(4,4,5,.68));
+    }
+
+    .portfolio-media,
+    .portfolio-image {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
   </style>
 </head>
 <body>
@@ -2218,18 +2203,24 @@
 
                 <div class="portfolio-rail-viewport">
                   <div class="portfolio-rail magnetic" id="portfolioVideos">
-                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-01.jpg" data-src="assets/portfolio/video-01.mp4"></video><span class="portfolio-video-badge">Vídeo 01</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 01</strong><span>Adicione em assets/portfolio/video-01.mp4</span></div></div><div class="portfolio-item-overlay"><strong>Hook de performance</strong><span>Peça vertical para retenção e clique.</span></div></article>
-                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-02.jpg" data-src="assets/portfolio/video-02.mp4"></video><span class="portfolio-video-badge">Vídeo 02</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 02</strong><span>Adicione em assets/portfolio/video-02.mp4</span></div></div><div class="portfolio-item-overlay"><strong>UGC com prova</strong><span>Formato social proof com ritmo leve.</span></div></article>
-                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-03.jpg" data-src="assets/portfolio/video-03.mp4"></video><span class="portfolio-video-badge">Vídeo 03</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 03</strong><span>Adicione em assets/portfolio/video-03.mp4</span></div></div><div class="portfolio-item-overlay"><strong>Antes e depois</strong><span>Transição de impacto com leitura rápida.</span></div></article>
-                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-04.jpg" data-src="assets/portfolio/video-04.mp4"></video><span class="portfolio-video-badge">Vídeo 04</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 04</strong><span>Adicione em assets/portfolio/video-04.mp4</span></div></div><div class="portfolio-item-overlay"><strong>Criativo narrado</strong><span>Peça com abertura forte e CTA claro.</span></div></article>
-                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-05.jpg" data-src="assets/portfolio/video-05.mp4"></video><span class="portfolio-video-badge">Vídeo 05</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 05</strong><span>Adicione em assets/portfolio/video-05.mp4</span></div></div><div class="portfolio-item-overlay"><strong>VSL cut</strong><span>Recorte enxuto para aquecer tráfego.</span></div></article>
-                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-06.jpg" data-src="assets/portfolio/video-06.mp4"></video><span class="portfolio-video-badge">Vídeo 06</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 06</strong><span>Adicione em assets/portfolio/video-06.mp4</span></div></div><div class="portfolio-item-overlay"><strong>Oferta direta</strong><span>Ângulo objetivo para resposta rápida.</span></div></article>
-                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-07.jpg" data-src="assets/portfolio/video-07.mp4"></video><span class="portfolio-video-badge">Vídeo 07</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 07</strong><span>Adicione em assets/portfolio/video-07.mp4</span></div></div><div class="portfolio-item-overlay"><strong>Motion premium</strong><span>Recursos visuais com percepção elevada.</span></div></article>
-                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-08.jpg" data-src="assets/portfolio/video-08.mp4"></video><span class="portfolio-video-badge">Vídeo 08</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 08</strong><span>Adicione em assets/portfolio/video-08.mp4</span></div></div><div class="portfolio-item-overlay"><strong>Problema e solução</strong><span>Roteiro ideal para objeção e desejo.</span></div></article>
-                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-09.jpg" data-src="assets/portfolio/video-09.mp4"></video><span class="portfolio-video-badge">Vídeo 09</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 09</strong><span>Adicione em assets/portfolio/video-09.mp4</span></div></div><div class="portfolio-item-overlay"><strong>Demonstração curta</strong><span>Produto em uso com cortes rápidos.</span></div></article>
-                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-10.jpg" data-src="assets/portfolio/video-10.mp4"></video><span class="portfolio-video-badge">Vídeo 10</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 10</strong><span>Adicione em assets/portfolio/video-10.mp4</span></div></div><div class="portfolio-item-overlay"><strong>Oferta sazonal</strong><span>Peça para campanha, data ou sprint.</span></div></article>
-                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-11.jpg" data-src="assets/portfolio/video-11.mp4"></video><span class="portfolio-video-badge">Vídeo 11</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 11</strong><span>Adicione em assets/portfolio/video-11.mp4</span></div></div><div class="portfolio-item-overlay"><strong>Social proof</strong><span>Prints, resultados e credibilidade visual.</span></div></article>
-                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-12.jpg" data-src="assets/portfolio/video-12.mp4"></video><span class="portfolio-video-badge">Vídeo 12</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 12</strong><span>Adicione em assets/portfolio/video-12.mp4</span></div></div><div class="portfolio-item-overlay"><strong>Fechamento com CTA</strong><span>Encerramento visual para conversão.</span></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-01.jpg" data-src="assets/portfolio/video-01.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 01</strong><span>Adicione em assets/portfolio/video-01.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-02.jpg" data-src="assets/portfolio/video-02.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 02</strong><span>Adicione em assets/portfolio/video-02.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-03.jpg" data-src="assets/portfolio/video-03.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 03</strong><span>Adicione em assets/portfolio/video-03.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-04.jpg" data-src="assets/portfolio/video-04.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 04</strong><span>Adicione em assets/portfolio/video-04.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-05.jpg" data-src="assets/portfolio/video-05.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 05</strong><span>Adicione em assets/portfolio/video-05.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-06.jpg" data-src="assets/portfolio/video-06.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 06</strong><span>Adicione em assets/portfolio/video-06.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-07.jpg" data-src="assets/portfolio/video-07.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 07</strong><span>Adicione em assets/portfolio/video-07.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-08.jpg" data-src="assets/portfolio/video-08.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 08</strong><span>Adicione em assets/portfolio/video-08.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-09.jpg" data-src="assets/portfolio/video-09.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 09</strong><span>Adicione em assets/portfolio/video-09.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-10.jpg" data-src="assets/portfolio/video-10.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 10</strong><span>Adicione em assets/portfolio/video-10.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-11.jpg" data-src="assets/portfolio/video-11.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 11</strong><span>Adicione em assets/portfolio/video-11.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-12.jpg" data-src="assets/portfolio/video-12.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 12</strong><span>Adicione em assets/portfolio/video-12.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-13.jpg" data-src="assets/portfolio/video-13.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 13</strong><span>Adicione em assets/portfolio/video-13.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-14.jpg" data-src="assets/portfolio/video-14.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 14</strong><span>Adicione em assets/portfolio/video-14.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-15.jpg" data-src="assets/portfolio/video-15.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 15</strong><span>Adicione em assets/portfolio/video-15.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-16.jpg" data-src="assets/portfolio/video-16.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 16</strong><span>Adicione em assets/portfolio/video-16.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-17.jpg" data-src="assets/portfolio/video-17.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 17</strong><span>Adicione em assets/portfolio/video-17.mp4</span></div></div></article>
+                  <article class="portfolio-video-item"><video class="portfolio-media" muted loop playsinline preload="metadata" poster="assets/portfolio/poster-18.jpg" data-src="assets/portfolio/video-18.mp4"></video><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Vídeo 18</strong><span>Adicione em assets/portfolio/video-18.mp4</span></div></div></article>
                 </div>
                   <div class="portfolio-scroll-hint">Deslize para o lado para explorar</div>
                 </div>
@@ -2250,30 +2241,30 @@
 
                 <div class="portfolio-rail-viewport">
                   <div class="portfolio-rail magnetic" id="portfolioImages">
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-01.jpg" alt="Criativo Magemind 01"><span class="portfolio-image-badge">Criativo 01</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 01</strong><span>Adicione em assets/portfolio/image-01.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Headline premium</strong><span>Peça estática para percepção e clique.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-02.jpg" alt="Criativo Magemind 02"><span class="portfolio-image-badge">Criativo 02</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 02</strong><span>Adicione em assets/portfolio/image-02.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Oferta principal</strong><span>Destaque direto para proposta comercial.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-03.jpg" alt="Criativo Magemind 03"><span class="portfolio-image-badge">Criativo 03</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 03</strong><span>Adicione em assets/portfolio/image-03.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Ângulo de dor</strong><span>Visual forte para captar atenção rápido.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-04.jpg" alt="Criativo Magemind 04"><span class="portfolio-image-badge">Criativo 04</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 04</strong><span>Adicione em assets/portfolio/image-04.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Benefício visual</strong><span>Composição 1:1 com clareza de leitura.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-05.jpg" alt="Criativo Magemind 05"><span class="portfolio-image-badge">Criativo 05</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 05</strong><span>Adicione em assets/portfolio/image-05.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Comparativo</strong><span>Peça ideal para antes e depois visual.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-06.jpg" alt="Criativo Magemind 06"><span class="portfolio-image-badge">Criativo 06</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 06</strong><span>Adicione em assets/portfolio/image-06.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Prova social</strong><span>Espaço para avaliações e validação.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-07.jpg" alt="Criativo Magemind 07"><span class="portfolio-image-badge">Criativo 07</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 07</strong><span>Adicione em assets/portfolio/image-07.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Escassez</strong><span>Comunicação de urgência sem poluição.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-08.jpg" alt="Criativo Magemind 08"><span class="portfolio-image-badge">Criativo 08</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 08</strong><span>Adicione em assets/portfolio/image-08.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Oferta sazonal</strong><span>Peça para campanha, pico ou ação rápida.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-09.jpg" alt="Criativo Magemind 09"><span class="portfolio-image-badge">Criativo 09</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 09</strong><span>Adicione em assets/portfolio/image-09.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Mini catálogo</strong><span>Formato visual para variações e packs.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-10.jpg" alt="Criativo Magemind 10"><span class="portfolio-image-badge">Criativo 10</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 10</strong><span>Adicione em assets/portfolio/image-10.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Motion cover</strong><span>Capa estática para vídeo ou carrossel.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-11.jpg" alt="Criativo Magemind 11"><span class="portfolio-image-badge">Criativo 11</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 11</strong><span>Adicione em assets/portfolio/image-11.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Teaser visual</strong><span>Peça curta para aquecer curiosidade.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-12.jpg" alt="Criativo Magemind 12"><span class="portfolio-image-badge">Criativo 12</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 12</strong><span>Adicione em assets/portfolio/image-12.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Oferta com bônus</strong><span>Espaço ideal para empilhar valor.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-13.jpg" alt="Criativo Magemind 13"><span class="portfolio-image-badge">Criativo 13</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 13</strong><span>Adicione em assets/portfolio/image-13.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Storytelling</strong><span>Construção visual com narrativa forte.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-14.jpg" alt="Criativo Magemind 14"><span class="portfolio-image-badge">Criativo 14</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 14</strong><span>Adicione em assets/portfolio/image-14.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Benefício central</strong><span>Peça 1:1 com leitura direta e forte.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-15.jpg" alt="Criativo Magemind 15"><span class="portfolio-image-badge">Criativo 15</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 15</strong><span>Adicione em assets/portfolio/image-15.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Autoridade</strong><span>Peça para percepção de marca e presença.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-16.jpg" alt="Criativo Magemind 16"><span class="portfolio-image-badge">Criativo 16</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 16</strong><span>Adicione em assets/portfolio/image-16.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Comparação visual</strong><span>Bloco para contraste de solução e dor.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-17.jpg" alt="Criativo Magemind 17"><span class="portfolio-image-badge">Criativo 17</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 17</strong><span>Adicione em assets/portfolio/image-17.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Kit ou combo</strong><span>Excelente para empilhar peças ou produtos.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-18.jpg" alt="Criativo Magemind 18"><span class="portfolio-image-badge">Criativo 18</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 18</strong><span>Adicione em assets/portfolio/image-18.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Highlight de prova</strong><span>Cards, números e validação visual.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-19.jpg" alt="Criativo Magemind 19"><span class="portfolio-image-badge">Criativo 19</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 19</strong><span>Adicione em assets/portfolio/image-19.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Oferta enxuta</strong><span>Layout limpo para resposta imediata.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-20.jpg" alt="Criativo Magemind 20"><span class="portfolio-image-badge">Criativo 20</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 20</strong><span>Adicione em assets/portfolio/image-20.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Teste criativo</strong><span>Variação de layout para novas hipóteses.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-21.jpg" alt="Criativo Magemind 21"><span class="portfolio-image-badge">Criativo 21</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 21</strong><span>Adicione em assets/portfolio/image-21.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Oferta com urgência</strong><span>Gatilho visual para ação rápida.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-22.jpg" alt="Criativo Magemind 22"><span class="portfolio-image-badge">Criativo 22</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 22</strong><span>Adicione em assets/portfolio/image-22.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Autoridade visual</strong><span>Composição para reforçar marca e estética.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-23.jpg" alt="Criativo Magemind 23"><span class="portfolio-image-badge">Criativo 23</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 23</strong><span>Adicione em assets/portfolio/image-23.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Comparativo premium</strong><span>Espaço para argumentos em contraste.</span></div></article>
-                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-24.jpg" alt="Criativo Magemind 24"><span class="portfolio-image-badge">Criativo 24</span><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 24</strong><span>Adicione em assets/portfolio/image-24.jpg</span></div></div><div class="portfolio-item-overlay"><strong>Encerramento de vitrine</strong><span>Peça final para fechar a sequência visual.</span></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-01.png" alt="Criativo Magemind 01"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 01</strong><span>Adicione em assets/portfolio/image-01.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-02.png" alt="Criativo Magemind 02"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 02</strong><span>Adicione em assets/portfolio/image-02.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-03.png" alt="Criativo Magemind 03"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 03</strong><span>Adicione em assets/portfolio/image-03.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-04.png" alt="Criativo Magemind 04"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 04</strong><span>Adicione em assets/portfolio/image-04.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-05.png" alt="Criativo Magemind 05"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 05</strong><span>Adicione em assets/portfolio/image-05.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-06.png" alt="Criativo Magemind 06"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 06</strong><span>Adicione em assets/portfolio/image-06.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-07.png" alt="Criativo Magemind 07"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 07</strong><span>Adicione em assets/portfolio/image-07.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-08.png" alt="Criativo Magemind 08"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 08</strong><span>Adicione em assets/portfolio/image-08.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-09.png" alt="Criativo Magemind 09"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 09</strong><span>Adicione em assets/portfolio/image-09.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-10.png" alt="Criativo Magemind 10"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 10</strong><span>Adicione em assets/portfolio/image-10.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-11.png" alt="Criativo Magemind 11"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 11</strong><span>Adicione em assets/portfolio/image-11.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-12.png" alt="Criativo Magemind 12"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 12</strong><span>Adicione em assets/portfolio/image-12.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-13.png" alt="Criativo Magemind 13"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 13</strong><span>Adicione em assets/portfolio/image-13.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-14.png" alt="Criativo Magemind 14"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 14</strong><span>Adicione em assets/portfolio/image-14.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-15.png" alt="Criativo Magemind 15"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 15</strong><span>Adicione em assets/portfolio/image-15.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-16.png" alt="Criativo Magemind 16"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 16</strong><span>Adicione em assets/portfolio/image-16.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-17.png" alt="Criativo Magemind 17"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 17</strong><span>Adicione em assets/portfolio/image-17.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-18.png" alt="Criativo Magemind 18"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 18</strong><span>Adicione em assets/portfolio/image-18.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-19.png" alt="Criativo Magemind 19"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 19</strong><span>Adicione em assets/portfolio/image-19.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-20.png" alt="Criativo Magemind 20"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 20</strong><span>Adicione em assets/portfolio/image-20.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-21.png" alt="Criativo Magemind 21"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 21</strong><span>Adicione em assets/portfolio/image-21.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-22.png" alt="Criativo Magemind 22"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 22</strong><span>Adicione em assets/portfolio/image-22.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-23.png" alt="Criativo Magemind 23"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 23</strong><span>Adicione em assets/portfolio/image-23.png</span></div></div></article>
+                  <article class="portfolio-image-item"><img class="portfolio-image" loading="lazy" decoding="async" src="assets/portfolio/image-24.png" alt="Criativo Magemind 24"><div class="portfolio-fallback"><div class="portfolio-fallback-inner"><div class="plus-mark"></div><strong>Criativo 24</strong><span>Adicione em assets/portfolio/image-24.png</span></div></div></article>
                   </div>
                   <div class="portfolio-scroll-hint">Deslize para o lado para explorar</div>
                 </div>
@@ -2595,362 +2586,506 @@
     </div>
   </footer>
 
-  <script>
-    // Reveal on scroll
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+    <script>
+    (() => {
+      'use strict';
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const supportsIO = 'IntersectionObserver' in window;
+      const isDocumentVisible = () => document.visibilityState !== 'hidden';
+
+      // Reveal on scroll
+      const reveals = document.querySelectorAll('.reveal');
+      if (reveals.length) {
+        if (supportsIO && !prefersReducedMotion.matches) {
+          const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            });
+          }, { threshold: 0.12 });
+
+          reveals.forEach((element, index) => {
+            element.style.transitionDelay = `${Math.min(index * 50, 260)}ms`;
+            revealObserver.observe(element);
+          });
+        } else {
+          reveals.forEach((element) => element.classList.add('visible'));
         }
-      });
-    }, { threshold: 0.12 });
-    reveals.forEach((el, index) => {
-      el.style.transitionDelay = `${Math.min(index * 50, 260)}ms`;
-      observer.observe(el);
-    });
+      }
 
-    // Cursor glow
-    const cursorGlow = document.getElementById('cursorGlow');
-    if (cursorGlow) {
-      window.addEventListener('pointermove', (e) => {
-        cursorGlow.style.left = `${e.clientX}px`;
-        cursorGlow.style.top = `${e.clientY}px`;
-      });
-    }
+      // Cursor glow with rAF throttle
+      const cursorGlow = document.getElementById('cursorGlow');
+      if (cursorGlow && !prefersReducedMotion.matches && window.matchMedia('(pointer:fine)').matches) {
+        let glowFrame = 0;
+        let nextX = 0;
+        let nextY = 0;
 
-    // Hero parallax logo
+        window.addEventListener('pointermove', (event) => {
+          nextX = event.clientX;
+          nextY = event.clientY;
+          if (glowFrame) return;
+          glowFrame = window.requestAnimationFrame(() => {
+            cursorGlow.style.left = `${nextX}px`;
+            cursorGlow.style.top = `${nextY}px`;
+            glowFrame = 0;
+          });
+        }, { passive: true });
+      }
 
-    const parallaxZone = document.getElementById('parallaxZone');
-    const heroLogoStage = document.getElementById('heroLogoStage');
-    if (parallaxZone && heroLogoStage) {
-      parallaxZone.addEventListener('pointermove', (e) => {
-        const rect = parallaxZone.getBoundingClientRect();
-        const px = ((e.clientX - rect.left) / rect.width - 0.5) * 12;
-        const py = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
-        heroLogoStage.style.transform = `translate3d(${px * 0.35}px, ${py * 0.35}px, 0)`;
-      });
-      parallaxZone.addEventListener('pointerleave', () => {
-        heroLogoStage.style.transform = '';
-      });
-    }
+      // Hero parallax logo
+      const parallaxZone = document.getElementById('parallaxZone');
+      const heroLogoStage = document.getElementById('heroLogoStage');
+      if (parallaxZone && heroLogoStage && !prefersReducedMotion.matches && window.matchMedia('(pointer:fine)').matches) {
+        parallaxZone.addEventListener('pointermove', (event) => {
+          const rect = parallaxZone.getBoundingClientRect();
+          const px = ((event.clientX - rect.left) / rect.width - 0.5) * 12;
+          const py = ((event.clientY - rect.top) / rect.height - 0.5) * 10;
+          heroLogoStage.style.transform = `translate3d(${px * 0.35}px, ${py * 0.35}px, 0)`;
+        }, { passive: true });
 
-    const heroVideoCarousel = document.getElementById('heroVideoCarousel');
-    if (heroVideoCarousel) {
-      const videoSources = [
-        'videos/video-01.mp4',
-        'videos/video-02.mp4',
-        'videos/video-03.mp4',
-        'videos/video-04.mp4',
-        'videos/video-05.mp4',
-        'videos/video-06.mp4',
-        'videos/video-07.mp4'
-      ];
-      // Troque os caminhos acima pelos seus 7 vídeos reais.
-      // Exemplo: 'assets/videos/criativo-01.mp4'
+        parallaxZone.addEventListener('pointerleave', () => {
+          heroLogoStage.style.transform = '';
+        });
+      }
 
-      const cards = Array.from(heroVideoCarousel.querySelectorAll('.hero-video-card'));
-      const slots = ['is-left', 'is-center', 'is-right'];
-      let currentIndex = 0;
+      // Hero carousel
+      const heroVideoCarousel = document.getElementById('heroVideoCarousel');
+      if (heroVideoCarousel) {
+        const videoSources = [
+          'videos/video-01.mp4',
+          'videos/video-02.mp4',
+          'videos/video-03.mp4',
+          'videos/video-04.mp4',
+          'videos/video-05.mp4',
+          'videos/video-06.mp4',
+          'videos/video-07.mp4'
+        ];
 
-      function safePlay(video) {
+        const cards = Array.from(heroVideoCarousel.querySelectorAll('.hero-video-card'));
+        const slots = ['is-left', 'is-center', 'is-right'];
+        let currentIndex = 0;
+        let carouselInterval = null;
+        let carouselVisible = true;
+
+        const safePlay = (video) => {
+          const playPromise = video.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(() => {});
+          }
+        };
+
+        const syncHeroPlayback = () => {
+          cards.forEach((card) => {
+            const video = card.querySelector('.hero-video');
+            if (!video) return;
+            const shouldPlay = card.classList.contains('is-center') && carouselVisible && isDocumentVisible();
+            if (shouldPlay) {
+              safePlay(video);
+            } else {
+              video.pause();
+            }
+          });
+        };
+
+        const setVideo = (video, src, shouldPreloadFully) => {
+          if (video.dataset.src !== src) {
+            video.dataset.src = src;
+            video.src = src;
+          }
+          video.muted = true;
+          video.loop = true;
+          video.playsInline = true;
+          video.autoplay = true;
+          video.preload = shouldPreloadFully ? 'auto' : 'metadata';
+          if (video.readyState === 0) video.load();
+        };
+
+        const renderCarousel = (index) => {
+          const orderedSources = [
+            videoSources[(index - 1 + videoSources.length) % videoSources.length],
+            videoSources[index % videoSources.length],
+            videoSources[(index + 1) % videoSources.length]
+          ];
+
+          cards.forEach((card, cardIndex) => {
+            card.classList.remove('is-left', 'is-center', 'is-right');
+            card.classList.add(slots[cardIndex]);
+            const video = card.querySelector('.hero-video');
+            if (!video) return;
+            setVideo(video, orderedSources[cardIndex], cardIndex === 1);
+          });
+
+          syncHeroPlayback();
+        };
+
+        const startHeroRotation = () => {
+          if (carouselInterval || prefersReducedMotion.matches || videoSources.length < 2) return;
+          carouselInterval = window.setInterval(() => {
+            currentIndex = (currentIndex + 1) % videoSources.length;
+            renderCarousel(currentIndex);
+          }, 3000);
+        };
+
+        const stopHeroRotation = () => {
+          if (!carouselInterval) return;
+          window.clearInterval(carouselInterval);
+          carouselInterval = null;
+        };
+
+        renderCarousel(currentIndex);
+        startHeroRotation();
+
+        if (supportsIO) {
+          const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              carouselVisible = entry.isIntersecting;
+              syncHeroPlayback();
+              if (carouselVisible) {
+                startHeroRotation();
+              } else {
+                stopHeroRotation();
+              }
+            });
+          }, { threshold: 0.35 });
+          heroObserver.observe(heroVideoCarousel);
+        }
+
+        document.addEventListener('visibilitychange', () => {
+          syncHeroPlayback();
+          if (isDocumentVisible() && carouselVisible) {
+            startHeroRotation();
+          } else {
+            stopHeroRotation();
+          }
+        });
+      }
+
+      // Mobile nav
+      const nav = document.querySelector('.nav');
+      const navToggle = document.getElementById('navToggle');
+      const navLinks = document.querySelectorAll('.nav-links a');
+      const mobileNavQuery = window.matchMedia('(max-width: 860px)');
+
+      const closeMobileNav = () => {
+        if (!nav) return;
+        nav.classList.remove('is-open');
+        if (navToggle) {
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.setAttribute('aria-label', 'Abrir menu');
+        }
+      };
+
+      const toggleMobileNav = () => {
+        if (!nav || !navToggle || !mobileNavQuery.matches) return;
+        const isOpen = nav.classList.toggle('is-open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+        navToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+      };
+
+      if (nav && navToggle) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.addEventListener('click', (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          toggleMobileNav();
+        });
+
+        navLinks.forEach((link) => {
+          link.addEventListener('click', () => {
+            if (mobileNavQuery.matches) closeMobileNav();
+          });
+        });
+
+        document.addEventListener('click', (event) => {
+          if (!mobileNavQuery.matches || nav.contains(event.target)) return;
+          closeMobileNav();
+        });
+
+        window.addEventListener('resize', () => {
+          if (!mobileNavQuery.matches) closeMobileNav();
+        }, { passive: true });
+      }
+
+      // Portfolio rails
+      const portfolioRails = Array.from(document.querySelectorAll('.portfolio-rail'));
+      const portfolioSection = document.getElementById('portfolio');
+      let isPortfolioSectionVisible = false;
+
+      const ensureVideoLoaded = (video, eager = false) => {
+        if (!video) return;
+        const source = video.dataset.src || '';
+        if (!source) return;
+
+        if (video.dataset.loaded !== 'true') {
+          video.src = source;
+          video.load();
+          video.dataset.loaded = 'true';
+        }
+
+        const targetPreload = eager ? 'auto' : 'metadata';
+        if (video.preload !== targetPreload) {
+          video.preload = targetPreload;
+        }
+      };
+
+      const safePlay = (video) => {
         const playPromise = video.play();
         if (playPromise && typeof playPromise.catch === 'function') {
           playPromise.catch(() => {});
         }
-      }
-
-      function setVideo(videoEl, src) {
-        if (videoEl.dataset.src === src) return;
-        videoEl.dataset.src = src;
-        videoEl.src = src;
-        videoEl.muted = true;
-        videoEl.loop = true;
-        videoEl.playsInline = true;
-        videoEl.autoplay = true;
-        videoEl.load();
-        safePlay(videoEl);
-      }
-
-      function renderCarousel(index) {
-        const leftSrc = videoSources[(index - 1 + videoSources.length) % videoSources.length];
-        const centerSrc = videoSources[index % videoSources.length];
-        const rightSrc = videoSources[(index + 1) % videoSources.length];
-
-        const orderedSources = [leftSrc, centerSrc, rightSrc];
-
-        cards.forEach((card, i) => {
-          card.classList.remove('is-left', 'is-center', 'is-right');
-          card.classList.add(slots[i]);
-          const video = card.querySelector('.hero-video');
-          setVideo(video, orderedSources[i]);
-        });
-      }
-
-      renderCarousel(currentIndex);
-
-      setInterval(() => {
-        currentIndex = (currentIndex + 1) % videoSources.length;
-        renderCarousel(currentIndex);
-      }, 3000);
-    }
-
-    const nav = document.querySelector('.nav');
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    const mobileNavQuery = window.matchMedia('(max-width: 860px)');
-
-    function closeMobileNav() {
-      if (!nav) return;
-      nav.classList.remove('is-open');
-      if (navToggle) {
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.setAttribute('aria-label', 'Abrir menu');
-      }
-    }
-
-    function toggleMobileNav() {
-      if (!nav || !navToggle || !mobileNavQuery.matches) return;
-      const isOpen = nav.classList.toggle('is-open');
-      navToggle.setAttribute('aria-expanded', String(isOpen));
-      navToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
-    }
-
-    if (navToggle && nav) {
-      navToggle.setAttribute('aria-expanded', 'false');
-      navToggle.addEventListener('click', (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        toggleMobileNav();
-      });
-
-      navLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-          if (mobileNavQuery.matches) closeMobileNav();
-        });
-      });
-
-      document.addEventListener('click', (event) => {
-        if (!mobileNavQuery.matches) return;
-        if (!nav.contains(event.target)) closeMobileNav();
-      });
-
-      window.addEventListener('resize', () => {
-        if (!mobileNavQuery.matches) closeMobileNav();
-      });
-    }
-
-    const portfolioRails = document.querySelectorAll('.portfolio-rail');
-
-    function updateActivePortfolioItems(rail) {
-      const items = Array.from(rail.querySelectorAll('.portfolio-video-item, .portfolio-image-item'));
-      if (!items.length) return;
-      const railRect = rail.getBoundingClientRect();
-      const railCenter = railRect.left + railRect.width / 2;
-      let closestItem = items[0];
-      let minDistance = Infinity;
-
-      items.forEach((item) => {
-        const rect = item.getBoundingClientRect();
-        const itemCenter = rect.left + rect.width / 2;
-        const distance = Math.abs(itemCenter - railCenter);
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestItem = item;
-        }
-      });
-
-      items.forEach((item) => item.classList.toggle('is-active', item === closestItem));
-    }
-
-    function setupRailDrag(rail) {
-      let isMouseDown = false;
-      let startX = 0;
-      let scrollLeft = 0;
-      let moved = false;
-      const desktopQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
-
-      rail.addEventListener('mousedown', (event) => {
-        if (!desktopQuery.matches || event.button !== 0) return;
-        isMouseDown = true;
-        moved = false;
-        startX = event.clientX;
-        scrollLeft = rail.scrollLeft;
-        rail.classList.add('is-dragging');
-      });
-
-      window.addEventListener('mousemove', (event) => {
-        if (!isMouseDown) return;
-        const walk = event.clientX - startX;
-        if (Math.abs(walk) > 4) moved = true;
-        rail.scrollLeft = scrollLeft - walk;
-      });
-
-      const stopDrag = () => {
-        isMouseDown = false;
-        rail.classList.remove('is-dragging');
       };
 
-      window.addEventListener('mouseup', stopDrag);
-      window.addEventListener('mouseleave', stopDrag);
+      const syncPortfolioPlayback = () => {
+        document.querySelectorAll('.portfolio-media').forEach((video) => {
+          const shouldPlay = isPortfolioSectionVisible
+            && video.dataset.inViewport === 'true'
+            && isDocumentVisible();
 
-      rail.addEventListener('dragstart', (event) => event.preventDefault());
-      rail.addEventListener('click', (event) => {
-        if (moved) {
+          if (shouldPlay) {
+            ensureVideoLoaded(video, true);
+            safePlay(video);
+          } else {
+            video.pause();
+          }
+        });
+      };
+
+      const updateActivePortfolioItems = (rail) => {
+        const items = Array.from(rail.querySelectorAll('.portfolio-video-item, .portfolio-image-item'));
+        if (!items.length) return;
+
+        const railRect = rail.getBoundingClientRect();
+        const railCenter = railRect.left + railRect.width / 2;
+        let closestItem = items[0];
+        let minDistance = Infinity;
+
+        items.forEach((item) => {
+          const rect = item.getBoundingClientRect();
+          const itemCenter = rect.left + rect.width / 2;
+          const distance = Math.abs(itemCenter - railCenter);
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestItem = item;
+          }
+        });
+
+        items.forEach((item) => {
+          item.classList.toggle('is-active', item === closestItem);
+        });
+
+        syncPortfolioPlayback();
+      };
+
+      const setupRailDrag = (rail) => {
+        let isMouseDown = false;
+        let startX = 0;
+        let scrollLeft = 0;
+        let moved = false;
+        const desktopQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+        rail.addEventListener('mousedown', (event) => {
+          if (!desktopQuery.matches || event.button !== 0) return;
+          isMouseDown = true;
+          moved = false;
+          startX = event.clientX;
+          scrollLeft = rail.scrollLeft;
+          rail.classList.add('is-dragging');
+        });
+
+        window.addEventListener('mousemove', (event) => {
+          if (!isMouseDown) return;
+          const walk = event.clientX - startX;
+          if (Math.abs(walk) > 4) moved = true;
+          rail.scrollLeft = scrollLeft - walk;
+        });
+
+        const stopDrag = () => {
+          isMouseDown = false;
+          rail.classList.remove('is-dragging');
+        };
+
+        window.addEventListener('mouseup', stopDrag);
+        window.addEventListener('mouseleave', stopDrag);
+        rail.addEventListener('dragstart', (event) => event.preventDefault());
+        rail.addEventListener('click', (event) => {
+          if (!moved) return;
           event.preventDefault();
           moved = false;
-        }
-      }, true);
-    }
+        }, true);
+      };
 
-    function setupPortfolioFocus() {
-      portfolioRails.forEach((rail) => {
-        let ticking = false;
-        const refresh = () => {
-          updateActivePortfolioItems(rail);
-          ticking = false;
-        };
+      const setupPortfolioFocus = () => {
+        portfolioRails.forEach((rail) => {
+          let ticking = false;
+          const refresh = () => {
+            updateActivePortfolioItems(rail);
+            ticking = false;
+          };
 
-        const onScroll = () => {
-          if (!ticking) {
-            requestAnimationFrame(refresh);
+          const onScroll = () => {
+            if (ticking) return;
             ticking = true;
-          }
-        };
+            window.requestAnimationFrame(refresh);
+          };
 
-        rail.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', onScroll);
-        requestAnimationFrame(() => updateActivePortfolioItems(rail));
-      });
-    }
+          rail.addEventListener('scroll', onScroll, { passive: true });
+          window.addEventListener('resize', onScroll, { passive: true });
+          window.requestAnimationFrame(() => updateActivePortfolioItems(rail));
+        });
+      };
 
-    function setupPortfolioHints() {
-      const cards = document.querySelectorAll('[data-hint-card]');
-      cards.forEach((card) => {
-        const rail = card.querySelector('.portfolio-rail');
-        if (!rail) return;
+      const setupPortfolioHints = () => {
+        document.querySelectorAll('[data-hint-card]').forEach((card) => {
+          const rail = card.querySelector('.portfolio-rail');
+          if (!rail) return;
 
-        let hintTimer = null;
-        let hasInteracted = false;
+          let hintTimer = 0;
+          let hasInteracted = false;
 
-        const showHint = () => {
-          if (!hasInteracted) card.classList.add('show-scroll-hint');
-        };
+          const clearHintTimer = () => {
+            if (!hintTimer) return;
+            window.clearTimeout(hintTimer);
+            hintTimer = 0;
+          };
 
-        const hideHint = () => {
-          hasInteracted = true;
-          card.classList.remove('show-scroll-hint');
-          if (hintTimer) clearTimeout(hintTimer);
-        };
+          const showHint = () => {
+            if (!hasInteracted) card.classList.add('show-scroll-hint');
+          };
 
-        const scheduleHint = () => {
-          if (hasInteracted) return;
-          if (hintTimer) clearTimeout(hintTimer);
-          hintTimer = setTimeout(showHint, 5000);
-        };
+          const hideHint = () => {
+            hasInteracted = true;
+            clearHintTimer();
+            card.classList.remove('show-scroll-hint');
+          };
 
-        const sectionObserver = 'IntersectionObserver' in window
-          ? new IntersectionObserver((entries) => {
+          const scheduleHint = () => {
+            if (hasInteracted) return;
+            clearHintTimer();
+            hintTimer = window.setTimeout(showHint, 5000);
+          };
+
+          if (supportsIO) {
+            const hintObserver = new IntersectionObserver((entries) => {
               entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                   scheduleHint();
                 } else {
+                  clearHintTimer();
                   card.classList.remove('show-scroll-hint');
-                  if (hintTimer) clearTimeout(hintTimer);
                 }
               });
-            }, { threshold: 0.45 })
+            }, { threshold: 0.45 });
+
+            hintObserver.observe(card);
+          } else {
+            scheduleHint();
+          }
+
+          ['scroll', 'touchstart', 'pointerdown', 'wheel'].forEach((eventName) => {
+            rail.addEventListener(eventName, hideHint, { passive: true });
+          });
+        });
+      };
+
+      const setupPortfolioMedia = () => {
+        const videoObserver = supportsIO
+          ? new IntersectionObserver((entries) => {
+              entries.forEach((entry) => {
+                const video = entry.target;
+                const fallback = video.parentElement?.querySelector('.portfolio-fallback');
+                video.dataset.inViewport = entry.isIntersecting ? 'true' : 'false';
+
+                if (entry.isIntersecting) {
+                  ensureVideoLoaded(video, isPortfolioSectionVisible);
+                  if (fallback) fallback.style.display = 'none';
+                }
+              });
+              syncPortfolioPlayback();
+            }, { threshold: 0.1, rootMargin: '220px 0px' })
           : null;
 
-        if (sectionObserver) {
-          sectionObserver.observe(card);
-        } else {
-          scheduleHint();
-        }
-
-        ['scroll', 'touchstart', 'pointerdown', 'wheel'].forEach((eventName) => {
-          rail.addEventListener(eventName, hideHint, { passive: true });
-        });
-      });
-    }
-
-    function setupPortfolioMedia() {
-      const videoObserver = 'IntersectionObserver' in window
-        ? new IntersectionObserver((entries) => {
+        if (portfolioSection && supportsIO) {
+          const portfolioSectionObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-              const video = entry.target;
-              if (entry.isIntersecting) {
-                if (!video.src) {
-                  video.src = video.dataset.src || '';
-                  video.load();
-                }
-                const promise = video.play();
-                if (promise && typeof promise.catch === 'function') promise.catch(() => {});
-              } else {
-                video.pause();
+              isPortfolioSectionVisible = entry.isIntersecting;
+              if (isPortfolioSectionVisible) {
+                document.querySelectorAll('.portfolio-media[data-in-viewport="true"]').forEach((video) => {
+                  ensureVideoLoaded(video, true);
+                });
               }
+              syncPortfolioPlayback();
             });
-          }, { threshold: 0.6 })
-        : null;
+          }, { threshold: 0.2, rootMargin: '120px 0px' });
 
-      document.querySelectorAll('.portfolio-media').forEach((video) => {
-        const fallback = video.parentElement.querySelector('.portfolio-fallback');
-        video.addEventListener('loadeddata', () => {
-          if (fallback) fallback.style.display = 'none';
-        }, { once: true });
-        video.addEventListener('error', () => {
-          if (fallback) fallback.style.display = 'grid';
-        });
-
-        if (videoObserver) {
-          videoObserver.observe(video);
+          portfolioSectionObserver.observe(portfolioSection);
         } else {
-          video.src = video.dataset.src || '';
-          video.load();
-          const promise = video.play();
-          if (promise && typeof promise.catch === 'function') promise.catch(() => {});
+          isPortfolioSectionVisible = true;
         }
-      });
 
-      document.querySelectorAll('.portfolio-image').forEach((image) => {
-        const fallback = image.parentElement.querySelector('.portfolio-fallback');
-        image.addEventListener('load', () => {
-          if (fallback) fallback.style.display = 'none';
-        }, { once: true });
-        image.addEventListener('error', () => {
-          if (fallback) fallback.style.display = 'grid';
+        document.querySelectorAll('.portfolio-media').forEach((video) => {
+          const fallback = video.parentElement?.querySelector('.portfolio-fallback');
+          video.dataset.inViewport = 'false';
+          video.preload = 'metadata';
+
+          video.addEventListener('loadeddata', () => {
+            if (fallback) fallback.style.display = 'none';
+          }, { once: true });
+
+          video.addEventListener('error', () => {
+            if (fallback) fallback.style.display = 'grid';
+          });
+
+          if (videoObserver) {
+            videoObserver.observe(video);
+          } else {
+            video.dataset.inViewport = 'true';
+            ensureVideoLoaded(video, true);
+          }
         });
-      });
-    }
 
-    let globalTouchStartX = 0;
-    let globalTouchStartY = 0;
+        document.querySelectorAll('.portfolio-image').forEach((image) => {
+          const fallback = image.parentElement?.querySelector('.portfolio-fallback');
+          image.addEventListener('load', () => {
+            if (fallback) fallback.style.display = 'none';
+          }, { once: true });
+          image.addEventListener('error', () => {
+            if (fallback) fallback.style.display = 'grid';
+          });
+        });
+      };
 
-    document.addEventListener('touchstart', (event) => {
-      if (event.touches.length !== 1) return;
-      globalTouchStartX = event.touches[0].clientX;
-      globalTouchStartY = event.touches[0].clientY;
-    }, { passive: true });
+      let globalTouchStartX = 0;
+      let globalTouchStartY = 0;
 
-    document.addEventListener('touchmove', (event) => {
-      if (event.touches.length !== 1) return;
-      const target = event.target;
-      const withinRail = target && target.closest && target.closest('.portfolio-rail');
-      if (withinRail) return;
+      document.addEventListener('touchstart', (event) => {
+        if (event.touches.length !== 1) return;
+        globalTouchStartX = event.touches[0].clientX;
+        globalTouchStartY = event.touches[0].clientY;
+      }, { passive: true });
 
-      const deltaX = event.touches[0].clientX - globalTouchStartX;
-      const deltaY = event.touches[0].clientY - globalTouchStartY;
+      document.addEventListener('touchmove', (event) => {
+        if (event.touches.length !== 1) return;
+        const target = event.target;
+        const withinRail = target && target.closest && target.closest('.portfolio-rail');
+        if (withinRail) return;
 
-      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
-        event.preventDefault();
-      }
-    }, { passive: false });
+        const deltaX = event.touches[0].clientX - globalTouchStartX;
+        const deltaY = event.touches[0].clientY - globalTouchStartY;
 
-    portfolioRails.forEach(setupRailDrag);
-    setupPortfolioFocus();
-    setupPortfolioHints();
-    setupPortfolioMedia();
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
+          event.preventDefault();
+        }
+      }, { passive: false });
+
+      portfolioRails.forEach(setupRailDrag);
+      setupPortfolioFocus();
+      setupPortfolioHints();
+      setupPortfolioMedia();
+
+      document.addEventListener('visibilitychange', syncPortfolioPlayback);
+    })();
   </script>
 </body>
 </html>
