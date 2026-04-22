@@ -1604,13 +1604,15 @@
         0 18px 54px rgba(0,0,0,.40),
         0 0 0 1px rgba(255,255,255,.03) inset;
       transition:
-        transform .9s var(--ease),
-        opacity .9s var(--ease),
-        filter .9s var(--ease),
-        box-shadow .9s var(--ease);
+        transform .82s var(--ease),
+        opacity .62s var(--ease),
+        box-shadow .72s var(--ease),
+        border-color .72s var(--ease);
       will-change: transform, opacity;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      isolation: isolate;
     }
 
     .hero-video-card::after {
@@ -1623,28 +1625,33 @@
     }
 
     .hero-video-card.is-left {
-      transform: translateX(-32%) scale(.84) rotate(-5deg);
-      opacity: .36;
-      filter: blur(.2px) saturate(.85);
+      transform: translate3d(-30%, 0, 0) scale(.86) rotate(-4deg);
+      opacity: .34;
       z-index: 1;
     }
 
     .hero-video-card.is-center {
-      transform: translateY(0) scale(1);
+      transform: translate3d(0, 0, 0) scale(1);
       opacity: 1;
-      filter: none;
       z-index: 3;
+      border-color: rgba(214,168,93,.24);
       box-shadow:
         0 30px 90px rgba(0,0,0,.46),
-        0 0 36px rgba(214,168,93,.20),
+        0 0 32px rgba(214,168,93,.18),
         0 0 0 1px rgba(255,255,255,.06) inset;
     }
 
     .hero-video-card.is-right {
-      transform: translateX(32%) scale(.84) rotate(5deg);
-      opacity: .36;
-      filter: blur(.2px) saturate(.85);
+      transform: translate3d(30%, 0, 0) scale(.86) rotate(4deg);
+      opacity: .34;
       z-index: 1;
+    }
+
+    .hero-video-card.is-prep-right {
+      transform: translate3d(46%, 0, 0) scale(.76) rotate(6deg);
+      opacity: 0;
+      z-index: 0;
+      pointer-events: none;
     }
 
     .hero-video {
@@ -2664,10 +2671,10 @@
         ];
 
         const cards = Array.from(heroVideoCarousel.querySelectorAll('.hero-video-card'));
-        const slots = ['is-left', 'is-center', 'is-right'];
         let currentIndex = 0;
         let carouselInterval = null;
         let carouselVisible = true;
+        let isAnimatingHeroCarousel = false;
 
         const safePlay = (video) => {
           const playPromise = video.play();
@@ -2690,16 +2697,23 @@
         };
 
         const setVideo = (video, src, shouldPreloadFully) => {
+          if (!video) return;
           if (video.dataset.src !== src) {
             video.dataset.src = src;
             video.src = src;
+            video.load();
           }
           video.muted = true;
           video.loop = true;
           video.playsInline = true;
           video.autoplay = true;
           video.preload = shouldPreloadFully ? 'auto' : 'metadata';
-          if (video.readyState === 0) video.load();
+        };
+
+        const resetHeroCardState = (card, state) => {
+          if (!card) return;
+          card.classList.remove('is-left', 'is-center', 'is-right', 'is-prep-right');
+          card.classList.add(state);
         };
 
         const renderCarousel = (index) => {
@@ -2709,23 +2723,57 @@
             videoSources[(index + 1) % videoSources.length]
           ];
 
+          const layoutStates = ['is-left', 'is-center', 'is-right'];
           cards.forEach((card, cardIndex) => {
-            card.classList.remove('is-left', 'is-center', 'is-right');
-            card.classList.add(slots[cardIndex]);
+            resetHeroCardState(card, layoutStates[cardIndex]);
             const video = card.querySelector('.hero-video');
-            if (!video) return;
-            setVideo(video, orderedSources[cardIndex], cardIndex === 1);
+            setVideo(video, orderedSources[cardIndex], cardIndex > 0);
+            if (cardIndex === 1 && video) {
+              video.currentTime = 0;
+            }
           });
 
           syncHeroPlayback();
         };
 
+        const advanceHeroCarousel = () => {
+          if (isAnimatingHeroCarousel || videoSources.length < 2) return;
+
+          const leftCard = heroVideoCarousel.querySelector('.hero-video-card.is-left');
+          const centerCard = heroVideoCarousel.querySelector('.hero-video-card.is-center');
+          const rightCard = heroVideoCarousel.querySelector('.hero-video-card.is-right');
+          if (!leftCard || !centerCard || !rightCard) return;
+
+          isAnimatingHeroCarousel = true;
+          currentIndex = (currentIndex + 1) % videoSources.length;
+
+          const incomingRightSrc = videoSources[(currentIndex + 1) % videoSources.length];
+          const incomingVideo = leftCard.querySelector('.hero-video');
+          setVideo(incomingVideo, incomingRightSrc, false);
+          if (incomingVideo) incomingVideo.currentTime = 0;
+
+          resetHeroCardState(leftCard, 'is-prep-right');
+          syncHeroPlayback();
+
+          window.requestAnimationFrame(() => {
+            window.requestAnimationFrame(() => {
+              resetHeroCardState(centerCard, 'is-left');
+              resetHeroCardState(rightCard, 'is-center');
+              resetHeroCardState(leftCard, 'is-right');
+              syncHeroPlayback();
+            });
+          });
+
+          window.setTimeout(() => {
+            isAnimatingHeroCarousel = false;
+          }, 860);
+        };
+
         const startHeroRotation = () => {
           if (carouselInterval || prefersReducedMotion.matches || videoSources.length < 2) return;
           carouselInterval = window.setInterval(() => {
-            currentIndex = (currentIndex + 1) % videoSources.length;
-            renderCarousel(currentIndex);
-          }, 3000);
+            advanceHeroCarousel();
+          }, 4200);
         };
 
         const stopHeroRotation = () => {
