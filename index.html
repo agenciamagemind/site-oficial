@@ -6,10 +6,17 @@
   <meta name="theme-color" content="#050608">
   <meta name="description" content="Magemind: criativos, sites e estratégias para transformar atenção em resultado.">
   <title>Magemind | Qualidade é o mínimo. Entregamos resultados.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/cormorant-garamond-italic-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/poppins-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/optimized/hero/image-02.webp" imagesrcset="assets/optimized/hero/image-02-384.webp 384w, assets/optimized/hero/image-02.webp 640w" imagesizes="(max-width:620px) 150px, (max-width:920px) 215px, 310px" as="image" type="image/webp" fetchpriority="high">
   <style>
+    @font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:300;font-display:swap;src:url("assets/fonts/cormorant-garamond-italic-300.woff2") format("woff2")}
+    @font-face{font-family:"Poppins";font-style:normal;font-weight:300;font-display:swap;src:url("assets/fonts/poppins-300.woff2") format("woff2")}
+    @font-face{font-family:"Poppins";font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/poppins-400.woff2") format("woff2")}
+    @font-face{font-family:"Poppins";font-style:normal;font-weight:500;font-display:swap;src:url("assets/fonts/poppins-500.woff2") format("woff2")}
+    @font-face{font-family:"Poppins";font-style:normal;font-weight:600;font-display:swap;src:url("assets/fonts/poppins-600.woff2") format("woff2")}
+    @font-face{font-family:"Poppins";font-style:normal;font-weight:700;font-display:swap;src:url("assets/fonts/poppins-700.woff2") format("woff2")}
+    @font-face{font-family:"Poppins";font-style:normal;font-weight:800;font-display:swap;src:url("assets/fonts/poppins-800.woff2") format("woff2")}
     :root {
       --bg:#050608; --bg-soft:#0b0d11; --text:#f7f8fa; --muted:#a7abb4;
       --line:rgba(255,255,255,.12); --glass:rgba(19,22,28,.58); --glass-hi:rgba(255,255,255,.09);
@@ -33,9 +40,9 @@
     .hero-drift{position:absolute;inset:0;z-index:-3;overflow:hidden;perspective:1200px;background:#050608;pointer-events:none}
     .hero-drift-plane{position:absolute;left:50%;top:-38%;width:min(1540px,122vw);height:178%;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;transform:translate3d(calc(-50% + var(--wall-x,0px)),var(--wall-y,0px),0) rotateX(16deg) rotateZ(-11deg) scale(1.08);transform-origin:50% 48%;transition:transform 1.4s var(--ease);will-change:transform}
     .drift-column{display:flex;flex-direction:column;min-width:0;animation:driftUp var(--drift-speed,42s) linear infinite;animation-delay:var(--drift-delay,0s);will-change:transform}.drift-column:nth-child(2){--drift-speed:49s;--drift-delay:-19s;margin-top:-120px}.drift-column:nth-child(3){--drift-speed:45s;--drift-delay:-31s;margin-top:70px}.drift-column:nth-child(4){--drift-speed:52s;--drift-delay:-12s;margin-top:-170px}.drift-column:nth-child(5){--drift-speed:39s;--drift-delay:-27s;margin-top:110px}
-    .drift-set{display:flex;flex-direction:column;flex:0 0 auto;gap:18px;padding-bottom:18px}.drift-tile{position:relative;aspect-ratio:1;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.16);background:#111318;box-shadow:0 26px 70px rgba(0,0,0,.54),inset 0 1px 0 rgba(255,255,255,.18);opacity:.78;filter:grayscale(.12) saturate(.9) brightness(.74);transform:translateZ(0);backface-visibility:hidden}.drift-tile img{width:100%;height:100%;object-fit:cover}.drift-tile:after{content:"";position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,.18),transparent 30%,transparent 72%,rgba(255,255,255,.05));box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
+    .drift-set{display:flex;flex-direction:column;flex:0 0 auto;gap:18px;padding-bottom:18px}.drift-tile{position:relative;aspect-ratio:1;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.16);background:#111318;box-shadow:0 26px 70px rgba(0,0,0,.54),inset 0 1px 0 rgba(255,255,255,.18);opacity:.78;filter:grayscale(.12) saturate(.9) brightness(.74)}.drift-tile img{width:100%;height:100%;object-fit:cover}.drift-tile:after{content:"";position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,.18),transparent 30%,transparent 72%,rgba(255,255,255,.05));box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
     .hero-drift:before{content:"";position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse 39% 49% at 50% 49%,rgba(5,6,8,.9) 0%,rgba(5,6,8,.78) 38%,rgba(5,6,8,.3) 72%,rgba(5,6,8,.12) 100%)}.hero-drift:after{content:"";position:absolute;inset:0;z-index:3;background:linear-gradient(180deg,rgba(5,6,8,.86) 0%,transparent 20%,transparent 70%,#050608 100%),linear-gradient(90deg,rgba(5,6,8,.52),transparent 18%,transparent 82%,rgba(5,6,8,.52))}
-    @keyframes driftUp{to{transform:translateY(-50%)}}
+    @keyframes driftUp{to{transform:translateY(-50%)}}.hero.is-runtime-paused .drift-column{animation-play-state:paused}
     .hero-copy{width:min(1320px,calc(100vw - 28px));margin:0 auto;padding:clamp(138px,18vh,190px) 0 clamp(118px,15vh,160px);text-align:center;position:relative;z-index:4}
     .eyebrow{display:inline-flex;gap:10px;align-items:center;text-transform:uppercase;font-size:10px;letter-spacing:.2em;color:#d7dce4}.eyebrow:before{content:"";width:24px;height:1px;background:currentColor;opacity:.6}
     .hero-eyebrow{font-family:"Poppins",sans-serif;text-transform:none;font-size:clamp(11px,1vw,13px);font-weight:300;letter-spacing:.065em;color:#f1f3f6}.hero-eyebrow:before{display:none}
@@ -116,7 +123,7 @@
     @media(max-width:760px){.portfolio-stage{left:50%;width:100vw;max-width:none;transform:translateX(-50%);grid-template-columns:20vw minmax(0,68vw) 20vw;gap:10px;overflow:hidden}.portfolio-stage .active-media-wrap{width:100%;max-width:none}.portfolio-stage .side-media{width:100%;max-width:none;height:auto;aspect-ratio:9/16;border-radius:18px}.portfolio-stage.is-image-mode .side-media{aspect-ratio:1/1}}
     @media(prefers-reduced-motion:reduce){.portfolio-stage.reel-forward .active-media-wrap,.portfolio-stage.reel-backward .active-media-wrap,.portfolio-stage.reel-forward .side-media,.portfolio-stage.reel-backward .side-media{animation:none}}
     /* Continuous draggable portfolio track */
-    .portfolio-stage{position:relative;left:auto;width:100vw;max-width:none;margin-left:calc(50% - 50vw);padding:clamp(28px,3vw,42px) 0;display:block;overflow:hidden;transform:none!important;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}.portfolio-stage.is-dragging{cursor:grabbing}.portfolio-track{display:flex;align-items:center;gap:clamp(14px,1.8vw,26px);width:max-content;transform:translate3d(0,0,0);transition:transform .62s var(--ease);will-change:transform}.portfolio-stage.is-dragging .portfolio-track{transition:none}.portfolio-slide{--slide-scale:.72;--slide-opacity:.16;--slide-gray:1;--slide-brightness:.34;--slide-blur:1.2px;--slide-y:18px;position:relative;flex:0 0 clamp(290px,27vw,420px);aspect-ratio:9/16;padding:0;overflow:hidden;border-radius:32px;border:1px solid rgba(255,255,255,.13);background:#050608;color:#fff;opacity:var(--slide-opacity);filter:grayscale(var(--slide-gray)) brightness(var(--slide-brightness)) blur(var(--slide-blur));box-shadow:0 28px 80px rgba(0,0,0,.56);transform:translate3d(0,var(--slide-y),0) scale(var(--slide-scale));transition:transform .42s var(--ease),opacity .42s var(--ease),filter .42s var(--ease),box-shadow .42s var(--ease);will-change:transform,opacity,filter;cursor:pointer}.portfolio-stage.is-dragging .portfolio-slide{transition:none}.portfolio-slide.is-active{z-index:4;box-shadow:0 48px 130px rgba(0,0,0,.78),0 0 0 1px rgba(255,255,255,.05),0 0 84px rgba(118,139,210,.08)}.portfolio-slide:focus-visible{outline:2px solid #fff;outline-offset:-5px}.portfolio-slide img,.portfolio-slide video{width:100%;height:100%;display:block;object-fit:cover;pointer-events:none}.portfolio-pause-indicator{position:absolute;left:50%;top:50%;z-index:5;display:grid;width:48px;height:48px;place-items:center;border:1px solid rgba(255,255,255,.22);border-radius:50%;background:rgba(5,6,9,.42);box-shadow:0 14px 38px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.12);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);opacity:0;pointer-events:none;transform:translate(-50%,-50%) scale(.88);transition:opacity .22s var(--ease),transform .22s var(--ease)}.portfolio-pause-indicator:before{content:"";width:14px;height:17px;background:linear-gradient(90deg,rgba(255,255,255,.92) 0 4px,transparent 4px 10px,rgba(255,255,255,.92) 10px 14px);border-radius:1px}.portfolio-slide.is-active.is-paused .portfolio-pause-indicator{opacity:1;transform:translate(-50%,-50%) scale(1)}.portfolio-stage.is-image-mode .portfolio-slide{aspect-ratio:1/1}.portfolio-stage.is-video-mode .portfolio-slide{aspect-ratio:9/16}
+    .portfolio-stage{position:relative;left:auto;width:100vw;max-width:none;margin-left:calc(50% - 50vw);padding:clamp(28px,3vw,42px) 0;display:block;overflow:hidden;transform:none!important;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}.portfolio-stage.is-dragging{cursor:grabbing}.portfolio-track{display:flex;align-items:center;gap:clamp(14px,1.8vw,26px);width:max-content;transform:translate3d(0,0,0);transition:transform .62s var(--ease);will-change:transform}.portfolio-stage.is-dragging .portfolio-track{transition:none}.portfolio-slide{--slide-scale:.72;--slide-opacity:.16;--slide-gray:1;--slide-brightness:.34;--slide-blur:1.2px;--slide-y:18px;position:relative;flex:0 0 clamp(290px,27vw,420px);aspect-ratio:9/16;padding:0;overflow:hidden;border-radius:32px;border:1px solid rgba(255,255,255,.13);background:#050608;color:#fff;opacity:var(--slide-opacity);filter:grayscale(var(--slide-gray)) brightness(var(--slide-brightness)) blur(var(--slide-blur));box-shadow:0 28px 80px rgba(0,0,0,.56);transform:translate3d(0,var(--slide-y),0) scale(var(--slide-scale));transition:transform .42s var(--ease),opacity .42s var(--ease),filter .42s var(--ease),box-shadow .42s var(--ease);cursor:pointer}.portfolio-stage.is-dragging .portfolio-slide{transition:none}.portfolio-slide.is-active{z-index:4;box-shadow:0 48px 130px rgba(0,0,0,.78),0 0 0 1px rgba(255,255,255,.05),0 0 84px rgba(118,139,210,.08)}.portfolio-slide:focus-visible{outline:2px solid #fff;outline-offset:-5px}.portfolio-slide img,.portfolio-slide video{width:100%;height:100%;display:block;object-fit:cover;pointer-events:none}.portfolio-pause-indicator{position:absolute;left:50%;top:50%;z-index:5;display:grid;width:48px;height:48px;place-items:center;border:1px solid rgba(255,255,255,.22);border-radius:50%;background:rgba(5,6,9,.42);box-shadow:0 14px 38px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.12);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);opacity:0;pointer-events:none;transform:translate(-50%,-50%) scale(.88);transition:opacity .22s var(--ease),transform .22s var(--ease)}.portfolio-pause-indicator:before{content:"";width:14px;height:17px;background:linear-gradient(90deg,rgba(255,255,255,.92) 0 4px,transparent 4px 10px,rgba(255,255,255,.92) 10px 14px);border-radius:1px}.portfolio-slide.is-active.is-paused .portfolio-pause-indicator{opacity:1;transform:translate(-50%,-50%) scale(1)}.portfolio-stage.is-image-mode .portfolio-slide{aspect-ratio:1/1}.portfolio-stage.is-video-mode .portfolio-slide{aspect-ratio:9/16}
     @media(max-width:760px){.portfolio-stage{width:100vw;margin-left:calc(50% - 50vw);padding:22px 0 30px}.portfolio-track{gap:14px}.portfolio-slide{flex-basis:72vw;border-radius:25px}}
     @media(prefers-reduced-motion:reduce){.portfolio-track,.portfolio-slide{transition:none}}
 
@@ -292,32 +299,32 @@
         <div class="section-head solutions-section-head reveal"><div><span class="process-kicker solutions-kicker">O que fazemos?</span><h2><span class="solutions-title-solid">Soluções</span><span class="solutions-title-script">pra você</span></h2></div></div>
         <div class="solution-scroll-stack" id="solutionStack">
           <article class="solution-stack-card" data-solution-card style="--solution-glow:rgba(126,184,228,.22)">
-            <img class="solution-stack-image" src="assets/solutions/creative.jpg" alt="" loading="lazy" decoding="async">
+            <img class="solution-stack-image" src="assets/solutions/creative.jpg" srcset="assets/optimized/solutions/creative-960.webp 960w, assets/optimized/solutions/creative-1440.webp 1440w" sizes="(max-width:1040px) calc(100vw - 24px), 1000px" alt="" loading="lazy" decoding="async">
             <div class="solution-stack-top"><span class="solution-stack-eyebrow">CRIAÇÃO SOB MEDIDA</span></div>
             <div class="solution-stack-content"><h3>Criativos personalizados</h3><p>Vídeos e imagens criados para capturar atenção, elevar a percepção de valor e transformar interesse em ação.</p><div class="solution-tags"><span class="tag">Retenção</span><span class="tag">Percepção de valor</span><span class="tag">Clique</span></div></div>
           </article>
           <article class="solution-stack-card" data-solution-card style="--solution-glow:rgba(186,137,224,.2)">
-            <img class="solution-stack-image" src="assets/solutions/social.jpg" alt="" loading="lazy" decoding="async">
+            <img class="solution-stack-image" src="assets/solutions/social.jpg" srcset="assets/optimized/solutions/social-960.webp 960w, assets/optimized/solutions/social-1440.webp 1440w" sizes="(max-width:1040px) calc(100vw - 24px), 1000px" alt="" loading="lazy" decoding="async">
             <div class="solution-stack-top"><span class="solution-stack-eyebrow">PRESENÇA DE MARCA</span></div>
             <div class="solution-stack-content"><h3>Conteúdo para redes sociais</h3><p>Carrosséis, artes, reels e conteúdos que mantêm sua marca presente, consistente e relevante.</p><div class="solution-tags"><span class="tag">Carrosséis</span><span class="tag">Reels</span><span class="tag">Conteúdo</span></div></div>
           </article>
           <article class="solution-stack-card" data-solution-card style="--solution-glow:rgba(120,200,190,.2)">
-            <img class="solution-stack-image" src="assets/solutions/website.jpg" alt="" loading="lazy" decoding="async">
+            <img class="solution-stack-image" src="assets/solutions/website.jpg" srcset="assets/optimized/solutions/website-960.webp 960w, assets/optimized/solutions/website-1440.webp 1440w" sizes="(max-width:1040px) calc(100vw - 24px), 1000px" alt="" loading="lazy" decoding="async">
             <div class="solution-stack-top"><span class="solution-stack-eyebrow">EXPERIÊNCIAS DIGITAIS</span></div>
             <div class="solution-stack-content"><h3>Sites profissionais</h3><p>Landing pages e e-commerces que unem narrativa, design e conversão em uma experiência pensada para o público certo.</p><div class="solution-tags"><span class="tag">Landing pages</span><span class="tag">E-commerce</span><span class="tag">UX</span></div></div>
           </article>
           <article class="solution-stack-card" data-solution-card style="--solution-glow:rgba(145,160,232,.2)">
-            <img class="solution-stack-image" src="assets/solutions/cloning.jpg" alt="" loading="lazy" decoding="async">
+            <img class="solution-stack-image" src="assets/solutions/cloning.jpg" srcset="assets/optimized/solutions/cloning-960.webp 960w, assets/optimized/solutions/cloning-1440.webp 1440w" sizes="(max-width:1040px) calc(100vw - 24px), 1000px" alt="" loading="lazy" decoding="async">
             <div class="solution-stack-top"><span class="solution-stack-eyebrow">ESTRUTURAS VALIDADAS</span></div>
             <div class="solution-stack-content"><h3>Clonagem de ofertas</h3><p>Recriamos estruturas validadas em Shopify, HTML e outras stacks, adaptando experiência, identidade e operação ao seu negócio.</p><div class="solution-tags"><span class="tag">Shopify</span><span class="tag">HTML</span><span class="tag">Engenharia</span></div></div>
           </article>
           <article class="solution-stack-card" data-solution-card style="--solution-glow:rgba(113,209,157,.2)">
-            <img class="solution-stack-image" src="assets/solutions/traffic.jpg" alt="" loading="lazy" decoding="async">
+            <img class="solution-stack-image" src="assets/solutions/traffic.jpg" srcset="assets/optimized/solutions/traffic-960.webp 960w, assets/optimized/solutions/traffic-1440.webp 1440w" sizes="(max-width:1040px) calc(100vw - 24px), 1000px" alt="" loading="lazy" decoding="async">
             <div class="solution-stack-top"><span class="solution-stack-eyebrow">CRESCIMENTO PREVISÍVEL</span></div>
             <div class="solution-stack-content"><h3>Gestão de tráfego</h3><p>Da estratégia à otimização, colocamos suas campanhas nas mãos de quem entende teste, eficiência e escala.</p><div class="solution-tags"><span class="tag">Estratégia</span><span class="tag">Otimização</span><span class="tag">Escala</span></div></div>
           </article>
           <article class="solution-stack-card" data-solution-card style="--solution-glow:rgba(225,134,134,.18)">
-            <img class="solution-stack-image" src="assets/solutions/reputation.jpg" alt="" loading="lazy" decoding="async">
+            <img class="solution-stack-image" src="assets/solutions/reputation.jpg" srcset="assets/optimized/solutions/reputation-960.webp 960w, assets/optimized/solutions/reputation-1440.webp 1440w" sizes="(max-width:1040px) calc(100vw - 24px), 1000px" alt="" loading="lazy" decoding="async">
             <div class="solution-stack-top"><span class="solution-stack-eyebrow">CONFIANÇA NA COMPRA</span></div>
             <div class="solution-stack-content"><h3>Reputação no Reclame Aqui</h3><p>Transformamos atendimento e resolução em confiança, fortalecendo sua reputação e a segurança de quem compra.</p><div class="solution-tags"><span class="tag">Atendimento</span><span class="tag">Confiança</span><span class="tag">Reputação</span></div></div>
           </article>
@@ -356,19 +363,19 @@
             <div class="app-lenticular-viewport" id="appLenticularViewport" role="region" aria-roledescription="carrossel" aria-label="Telas do aplicativo Magemind" tabindex="0">
               <div class="app-lenticular-track" id="appLenticularTrack">
                 <button class="app-lenticular-card" type="button" data-app-lenticular-card data-index="0" aria-label="Ver tela Menu">
-                  <span class="app-lenticular-media"><img class="app-lenticular-image" src="assets/app/carousel-menu.png" alt="Tela Menu do aplicativo Magemind" loading="lazy"><img class="app-lenticular-refraction" src="assets/app/carousel-menu.png" alt="" aria-hidden="true" loading="lazy"></span><span class="app-lenticular-ridges"></span><span class="app-lenticular-foil"></span><span class="app-lenticular-glint"></span>
+                  <span class="app-lenticular-media"><img class="app-lenticular-image" src="assets/optimized/app/carousel-menu.webp" srcset="assets/optimized/app/carousel-menu-960.webp 960w, assets/optimized/app/carousel-menu.webp 1280w" sizes="(max-width:760px) 78vw, (max-width:1565px) 46vw, 720px" alt="Tela Menu do aplicativo Magemind" loading="lazy" decoding="async"><img class="app-lenticular-refraction" src="assets/optimized/app/carousel-menu.webp" srcset="assets/optimized/app/carousel-menu-960.webp 960w, assets/optimized/app/carousel-menu.webp 1280w" sizes="(max-width:760px) 78vw, (max-width:1565px) 46vw, 720px" alt="" aria-hidden="true" loading="lazy" decoding="async"></span><span class="app-lenticular-ridges"></span><span class="app-lenticular-foil"></span><span class="app-lenticular-glint"></span>
                 </button>
                 <button class="app-lenticular-card" type="button" data-app-lenticular-card data-index="1" aria-label="Ver tela Soluções">
-                  <span class="app-lenticular-media"><img class="app-lenticular-image" src="assets/app/carousel-solucoes.png" alt="Tela Soluções do aplicativo Magemind" loading="lazy"><img class="app-lenticular-refraction" src="assets/app/carousel-solucoes.png" alt="" aria-hidden="true" loading="lazy"></span><span class="app-lenticular-ridges"></span><span class="app-lenticular-foil"></span><span class="app-lenticular-glint"></span>
+                  <span class="app-lenticular-media"><img class="app-lenticular-image" src="assets/optimized/app/carousel-solucoes.webp" srcset="assets/optimized/app/carousel-solucoes-960.webp 960w, assets/optimized/app/carousel-solucoes.webp 1280w" sizes="(max-width:760px) 78vw, (max-width:1565px) 46vw, 720px" alt="Tela Soluções do aplicativo Magemind" loading="lazy" decoding="async"><img class="app-lenticular-refraction" src="assets/optimized/app/carousel-solucoes.webp" srcset="assets/optimized/app/carousel-solucoes-960.webp 960w, assets/optimized/app/carousel-solucoes.webp 1280w" sizes="(max-width:760px) 78vw, (max-width:1565px) 46vw, 720px" alt="" aria-hidden="true" loading="lazy" decoding="async"></span><span class="app-lenticular-ridges"></span><span class="app-lenticular-foil"></span><span class="app-lenticular-glint"></span>
                 </button>
                 <button class="app-lenticular-card is-active" type="button" data-app-lenticular-card data-index="2" aria-label="Ver tela Indique e ganhe" aria-current="true">
-                  <span class="app-lenticular-media"><img class="app-lenticular-image" src="assets/app/carousel-indique-ganhe.png" alt="Tela Indique e ganhe do aplicativo Magemind" loading="eager"><img class="app-lenticular-refraction" src="assets/app/carousel-indique-ganhe.png" alt="" aria-hidden="true" loading="eager"></span><span class="app-lenticular-ridges"></span><span class="app-lenticular-foil"></span><span class="app-lenticular-glint"></span>
+                  <span class="app-lenticular-media"><img class="app-lenticular-image" src="assets/optimized/app/carousel-indique-ganhe.webp" srcset="assets/optimized/app/carousel-indique-ganhe-960.webp 960w, assets/optimized/app/carousel-indique-ganhe.webp 1280w" sizes="(max-width:760px) 78vw, (max-width:1565px) 46vw, 720px" alt="Tela Indique e ganhe do aplicativo Magemind" loading="lazy" decoding="async"><img class="app-lenticular-refraction" src="assets/optimized/app/carousel-indique-ganhe.webp" srcset="assets/optimized/app/carousel-indique-ganhe-960.webp 960w, assets/optimized/app/carousel-indique-ganhe.webp 1280w" sizes="(max-width:760px) 78vw, (max-width:1565px) 46vw, 720px" alt="" aria-hidden="true" loading="lazy" decoding="async"></span><span class="app-lenticular-ridges"></span><span class="app-lenticular-foil"></span><span class="app-lenticular-glint"></span>
                 </button>
                 <button class="app-lenticular-card" type="button" data-app-lenticular-card data-index="3" aria-label="Ver tela Documentos">
-                  <span class="app-lenticular-media"><img class="app-lenticular-image" src="assets/app/carousel-documentos.png" alt="Tela Documentos do aplicativo Magemind" loading="lazy"><img class="app-lenticular-refraction" src="assets/app/carousel-documentos.png" alt="" aria-hidden="true" loading="lazy"></span><span class="app-lenticular-ridges"></span><span class="app-lenticular-foil"></span><span class="app-lenticular-glint"></span>
+                  <span class="app-lenticular-media"><img class="app-lenticular-image" src="assets/optimized/app/carousel-documentos.webp" srcset="assets/optimized/app/carousel-documentos-960.webp 960w, assets/optimized/app/carousel-documentos.webp 1280w" sizes="(max-width:760px) 78vw, (max-width:1565px) 46vw, 720px" alt="Tela Documentos do aplicativo Magemind" loading="lazy" decoding="async"><img class="app-lenticular-refraction" src="assets/optimized/app/carousel-documentos.webp" srcset="assets/optimized/app/carousel-documentos-960.webp 960w, assets/optimized/app/carousel-documentos.webp 1280w" sizes="(max-width:760px) 78vw, (max-width:1565px) 46vw, 720px" alt="" aria-hidden="true" loading="lazy" decoding="async"></span><span class="app-lenticular-ridges"></span><span class="app-lenticular-foil"></span><span class="app-lenticular-glint"></span>
                 </button>
                 <button class="app-lenticular-card" type="button" data-app-lenticular-card data-index="4" aria-label="Ver tela Configurações">
-                  <span class="app-lenticular-media"><img class="app-lenticular-image" src="assets/app/carousel-configuracoes.png" alt="Tela Configurações do aplicativo Magemind" loading="lazy"><img class="app-lenticular-refraction" src="assets/app/carousel-configuracoes.png" alt="" aria-hidden="true" loading="lazy"></span><span class="app-lenticular-ridges"></span><span class="app-lenticular-foil"></span><span class="app-lenticular-glint"></span>
+                  <span class="app-lenticular-media"><img class="app-lenticular-image" src="assets/optimized/app/carousel-configuracoes.webp" srcset="assets/optimized/app/carousel-configuracoes-960.webp 960w, assets/optimized/app/carousel-configuracoes.webp 1280w" sizes="(max-width:760px) 78vw, (max-width:1565px) 46vw, 720px" alt="Tela Configurações do aplicativo Magemind" loading="lazy" decoding="async"><img class="app-lenticular-refraction" src="assets/optimized/app/carousel-configuracoes.webp" srcset="assets/optimized/app/carousel-configuracoes-960.webp 960w, assets/optimized/app/carousel-configuracoes.webp 1280w" sizes="(max-width:760px) 78vw, (max-width:1565px) 46vw, 720px" alt="" aria-hidden="true" loading="lazy" decoding="async"></span><span class="app-lenticular-ridges"></span><span class="app-lenticular-foil"></span><span class="app-lenticular-glint"></span>
                 </button>
               </div>
             </div>
@@ -469,23 +476,30 @@
       // Drift Wall — real square portfolio files, distributed in five seamless columns
       const driftWall = document.getElementById('heroDriftWall');
       const driftNumbers = Array.from({length:48},(_,index)=>index+1);
-      const driftFile = number => `assets/portfolio/image-${String(number).padStart(2,'0')}.png`;
+      const driftFile = number => `assets/optimized/hero/image-${String(number).padStart(2,'0')}.webp`;
       for (let columnIndex = 0; columnIndex < 5; columnIndex++) {
         const column = document.createElement('div');
         column.className = 'drift-column';
         const numbers = Array.from({length:10},(_,row) => driftNumbers[(row * 5 + columnIndex) % driftNumbers.length]);
-        const set = `<div class="drift-set">${numbers.map((number,row) => `<div class="drift-tile"><img src="${driftFile(number)}" alt="" loading="${row < 3 ? 'eager' : 'lazy'}" decoding="async"></div>`).join('')}</div>`;
-        column.innerHTML = set + set;
+        const makeSet = () => `<div class="drift-set">${numbers.map(number => `<div class="drift-tile"><img src="${driftFile(number)}" srcset="assets/optimized/hero/image-${String(number).padStart(2,'0')}-384.webp 384w, ${driftFile(number)} 640w" sizes="(max-width:620px) 150px, (max-width:920px) 215px, 310px" alt="" loading="eager" decoding="async" fetchpriority="${number === 2 ? 'high' : 'low'}"></div>`).join('')}</div>`;
+        column.innerHTML = makeSet() + makeSet();
         driftWall.appendChild(column);
       }
+      const heroSection = document.getElementById('inicio');
+      let heroRuntimeVisible = true;
+      const syncHeroRuntime = () => heroSection.classList.toggle('is-runtime-paused',!heroRuntimeVisible || document.hidden);
+      if ('IntersectionObserver' in window) new IntersectionObserver(entries => {
+        heroRuntimeVisible = entries[0].isIntersecting;
+        syncHeroRuntime();
+      },{rootMargin:'120px'}).observe(heroSection);
+      document.addEventListener('visibilitychange',syncHeroRuntime);
       if (!reduceMotion && matchMedia('(pointer:fine)').matches) {
-        const hero = document.getElementById('inicio');
-        hero.addEventListener('pointermove',event => {
-          const rect = hero.getBoundingClientRect();
+        heroSection.addEventListener('pointermove',event => {
+          const rect = heroSection.getBoundingClientRect();
           driftWall.style.setProperty('--wall-x', `${((event.clientX - rect.left) / rect.width - .5) * -16}px`);
           driftWall.style.setProperty('--wall-y', `${((event.clientY - rect.top) / rect.height - .5) * -10}px`);
         });
-        hero.addEventListener('pointerleave',() => {
+        heroSection.addEventListener('pointerleave',() => {
           driftWall.style.setProperty('--wall-x','0px');
           driftWall.style.setProperty('--wall-y','0px');
         });
@@ -533,6 +547,8 @@
       let processGridOffset = 0;
       let processGridLastFrame = performance.now();
       let processGridTrail = [];
+      let processGridFrame = 0;
+      let processGridVisible = !('IntersectionObserver' in window);
 
       function resizeProcessGrid() {
         const rect = processSection.getBoundingClientRect();
@@ -547,6 +563,8 @@
       }
 
       function drawProcessGrid(now) {
+        processGridFrame = 0;
+        if (!processGridVisible || document.hidden) return;
         const elapsed = Math.min(40,now - processGridLastFrame);
         processGridLastFrame = now;
         if (!reduceMotion) processGridOffset = (processGridOffset + elapsed * .005) % processGridSize;
@@ -570,7 +588,17 @@
         processGridContext.strokeStyle = 'rgba(255,255,255,.13)';
         processGridContext.lineWidth = 1;
         processGridContext.stroke();
-        requestAnimationFrame(drawProcessGrid);
+        if (!reduceMotion) processGridFrame = requestAnimationFrame(drawProcessGrid);
+      }
+
+      function syncProcessGridAnimation() {
+        if (processGridVisible && !document.hidden && !processGridFrame) {
+          processGridLastFrame = performance.now();
+          processGridFrame = requestAnimationFrame(drawProcessGrid);
+        } else if ((!processGridVisible || document.hidden) && processGridFrame) {
+          cancelAnimationFrame(processGridFrame);
+          processGridFrame = 0;
+        }
       }
 
       processSection.addEventListener('pointermove', event => {
@@ -586,7 +614,12 @@
       resizeProcessGrid();
       if ('ResizeObserver' in window) new ResizeObserver(resizeProcessGrid).observe(processSection);
       else window.addEventListener('resize',resizeProcessGrid);
-      requestAnimationFrame(drawProcessGrid);
+      if ('IntersectionObserver' in window) new IntersectionObserver(entries => {
+        processGridVisible = entries[0].isIntersecting;
+        syncProcessGridAnimation();
+      },{rootMargin:'140px'}).observe(processSection);
+      document.addEventListener('visibilitychange',syncProcessGridAnimation);
+      syncProcessGridAnimation();
 
       // Vertical solution stack: each new card settles over the previous one.
       const solutionStack = document.getElementById('solutionStack');
@@ -659,10 +692,12 @@
         if (!section || !canvas) return;
         const context = canvas.getContext('2d');
         if (!context) return;
-        let stars = [], width = 0, height = 0, frame = 0, visible = true, resizeFrame = 0;
+        let stars = [], width = 0, height = 0, frame = 0, resizeFrame = 0, seeded = false;
+        let visible = !('IntersectionObserver' in window);
         const pointer = {x:0,y:0,active:false};
         function draw(time) {
           frame = 0;
+          if (!seeded) return;
           context.clearRect(0,0,width,height);
           const drift = time * .006;
           stars.forEach(star => {
@@ -690,7 +725,7 @@
               context.strokeStyle = `hsla(${star.hue},70%,90%,${alpha * .16})`; context.lineWidth = .6; context.stroke();
             }
           });
-          if (!reduceMotion && visible) frame = requestAnimationFrame(draw);
+          if (!reduceMotion && visible && !document.hidden) frame = requestAnimationFrame(draw);
         }
         function seed() {
           if (frame) cancelAnimationFrame(frame); frame = 0;
@@ -705,7 +740,19 @@
             size:.28 + Math.random() * 1.25,phase:Math.random() * Math.PI * 2,speed:.22 + Math.random() * .65,
             hue:215 + Math.random() * 38
           }));
+          seeded = true;
           draw(performance.now());
+        }
+        function release() {
+          if (frame) cancelAnimationFrame(frame);
+          frame = 0; seeded = false; stars = []; pointer.active = false;
+          canvas.width = 1; canvas.height = 1;
+        }
+        function syncGalaxyAnimation() {
+          if (!visible) { release(); return; }
+          if (!seeded) { seed(); return; }
+          if (document.hidden && frame) { cancelAnimationFrame(frame); frame = 0; }
+          else if (!document.hidden && !reduceMotion && !frame) frame = requestAnimationFrame(draw);
         }
         section.addEventListener('pointermove',event => {
           const rect = section.getBoundingClientRect();
@@ -714,12 +761,13 @@
         section.addEventListener('pointerleave',() => pointer.active = false,{passive:true});
         if ('IntersectionObserver' in window) new IntersectionObserver(entries => {
           visible = entries[0].isIntersecting;
-          if (visible && !reduceMotion && !frame) frame = requestAnimationFrame(draw);
-        },{rootMargin:'180px'}).observe(section);
+          syncGalaxyAnimation();
+        },{rootMargin:'320px'}).observe(section);
         window.addEventListener('resize',() => {
-          if (!resizeFrame) resizeFrame = requestAnimationFrame(() => { resizeFrame = 0; seed(); });
+          if (visible && !resizeFrame) resizeFrame = requestAnimationFrame(() => { resizeFrame = 0; seed(); });
         });
-        seed();
+        document.addEventListener('visibilitychange',syncGalaxyAnimation);
+        if (visible) seed();
       }
       setupGalaxyBackground(document.getElementById('aplicativo'),document.getElementById('appGalaxy'));
       setupGalaxyBackground(document.getElementById('planos'),document.getElementById('pricingGalaxy'));
@@ -870,11 +918,35 @@
       const portfolioStage = document.getElementById('portfolioStage');
       const portfolioTrack = document.getElementById('portfolioTrack');
       let portfolioMode = 'video', portfolioIndex = 0, portfolioVirtualIndex = portfolioCloneDepth;
-      let portfolioSlides = [], portfolioTranslate = 0, portfolioVisible = false, portfolioAudioUnlocked = false;
+      let portfolioSlides = [], portfolioTranslate = 0, portfolioVisible = false, portfolioWarm = false, portfolioAudioUnlocked = false;
       let portfolioDragging = false, portfolioDragMoved = false, portfolioDragStart = 0, portfolioDragBase = 0, portfolioNormalizeTimer = 0, portfolioPressedIndex = null;
       function portfolioMedia(src) {
-        if (portfolioMode === 'image') return `<img src="${src}" alt="Criativo publicitário produzido pela Magemind" loading="lazy" draggable="false">`;
-        return `<video src="${src}" playsinline muted preload="none" aria-label="Criativo em vídeo produzido pela Magemind"></video><span class="portfolio-pause-indicator" aria-hidden="true"></span>`;
+        if (portfolioMode === 'image') return `<img data-src="${src}" alt="Criativo publicitário produzido pela Magemind" decoding="async" draggable="false">`;
+        return `<video data-src="${src}" playsinline muted preload="none" aria-label="Criativo em vídeo produzido pela Magemind"></video><span class="portfolio-pause-indicator" aria-hidden="true"></span>`;
+      }
+      function attachPortfolioSource(media,preload = 'metadata') {
+        if (!media || media.hasAttribute('src') || !media.dataset.src) return;
+        if (media.tagName === 'VIDEO') media.preload = preload;
+        media.src = media.dataset.src;
+        if (media.tagName === 'VIDEO') media.load();
+      }
+      function releasePortfolioSource(media) {
+        if (!media?.hasAttribute('src')) return;
+        if (media.tagName === 'VIDEO') media.pause();
+        media.removeAttribute('src');
+        if (media.tagName === 'VIDEO') { media.preload = 'none'; media.load(); }
+      }
+      function portfolioMediaRadius() {
+        const mobileViewport = window.innerWidth <= 760;
+        return portfolioMode === 'video' ? (mobileViewport ? 1 : 2) : (mobileViewport ? 2 : 3);
+      }
+      function syncPortfolioMediaSources() {
+        const radius = portfolioMediaRadius();
+        portfolioSlides.forEach((slide,index) => {
+          const media = slide.querySelector('video,img');
+          if (portfolioWarm && Math.abs(index - portfolioVirtualIndex) <= radius) attachPortfolioSource(media,index === portfolioVirtualIndex ? 'auto' : 'metadata');
+          else releasePortfolioSource(media);
+        });
       }
       function portfolioTargetTranslate(index) {
         const slide = portfolioSlides[index];
@@ -912,19 +984,23 @@
       function activePortfolioVideo() { return portfolioSlides[portfolioVirtualIndex]?.querySelector('video') || null; }
       function playActivePortfolioVideo() {
         const video = activePortfolioVideo();
-        if (!video || !portfolioVisible) return;
+        if (!video || !portfolioVisible || document.hidden) return;
+        attachPortfolioSource(video,'auto');
         video.preload = 'auto';
         video.volume = .85;
         video.muted = !portfolioAudioUnlocked;
         video.play().then(()=>video.closest('.portfolio-slide')?.classList.remove('is-paused')).catch(()=>{});
       }
       function activatePortfolioSlide(previousIndex = -1,keepTime = null) {
+        syncPortfolioMediaSources();
+        if (!portfolioWarm) return;
         portfolioSlides.forEach((slide,index) => {
           slide.classList.remove('is-paused');
           const video = slide.querySelector('video');
           if (!video) return;
           video.onended = null;
           if (index === portfolioVirtualIndex) {
+            attachPortfolioSource(video,'auto');
             video.preload = 'auto';
             video.volume = .85;
             video.muted = !portfolioAudioUnlocked;
@@ -934,7 +1010,8 @@
           } else {
             video.pause();
             video.muted = true;
-            if (Math.abs(index - portfolioVirtualIndex) <= 2) {
+            if (Math.abs(index - portfolioVirtualIndex) <= portfolioMediaRadius()) {
+              attachPortfolioSource(video,'metadata');
               video.preload = 'metadata';
               if (video.readyState >= 1 && video.currentTime === 0) { try { video.currentTime = .08; } catch {} }
               else video.addEventListener('loadedmetadata',()=>{if(video.duration>.1&&video.currentTime===0)video.currentTime=.08},{once:true});
@@ -1059,7 +1136,10 @@
         buildPortfolio();
       }));
       const modal = document.getElementById('mediaModal'), modalImage = document.getElementById('modalImage'); function openImage(src){modalImage.src=src;modal.classList.add('open');document.body.style.overflow='hidden'} function closeModal(){modal.classList.remove('open');document.body.style.overflow=''} modal.querySelector('.modal-close').addEventListener('click',closeModal); modal.addEventListener('click',event=>{if(event.target===modal)closeModal()}); document.addEventListener('keydown',event=>{if(event.key==='Escape')closeModal()});
-      new IntersectionObserver(entries=>entries.forEach(entry=>{portfolioVisible=entry.isIntersecting;if(portfolioVisible)playActivePortfolioVideo();else activePortfolioVideo()?.pause()}),{threshold:.2}).observe(document.getElementById('portfolio'));
+      const portfolioSection = document.getElementById('portfolio');
+      new IntersectionObserver(entries=>entries.forEach(entry=>{portfolioWarm=entry.isIntersecting;if(portfolioWarm)activatePortfolioSlide();else syncPortfolioMediaSources()}),{rootMargin:'900px 0px'}).observe(portfolioSection);
+      new IntersectionObserver(entries=>entries.forEach(entry=>{portfolioVisible=entry.isIntersecting;if(portfolioVisible)playActivePortfolioVideo();else activePortfolioVideo()?.pause()}),{threshold:.2}).observe(portfolioSection);
+      document.addEventListener('visibilitychange',()=>{if(document.hidden)activePortfolioVideo()?.pause();else if(portfolioVisible)playActivePortfolioVideo()});
       if ('ResizeObserver' in window) new ResizeObserver(()=>{if(!portfolioDragging)setPortfolioTranslate(portfolioTargetTranslate(portfolioVirtualIndex),false)}).observe(portfolioStage);
       else window.addEventListener('resize',()=>setPortfolioTranslate(portfolioTargetTranslate(portfolioVirtualIndex),false));
       buildPortfolio();
