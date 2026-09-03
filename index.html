@@ -123,7 +123,7 @@
     @media(max-width:760px){.portfolio-stage{left:50%;width:100vw;max-width:none;transform:translateX(-50%);grid-template-columns:20vw minmax(0,68vw) 20vw;gap:10px;overflow:hidden}.portfolio-stage .active-media-wrap{width:100%;max-width:none}.portfolio-stage .side-media{width:100%;max-width:none;height:auto;aspect-ratio:9/16;border-radius:18px}.portfolio-stage.is-image-mode .side-media{aspect-ratio:1/1}}
     @media(prefers-reduced-motion:reduce){.portfolio-stage.reel-forward .active-media-wrap,.portfolio-stage.reel-backward .active-media-wrap,.portfolio-stage.reel-forward .side-media,.portfolio-stage.reel-backward .side-media{animation:none}}
     /* Continuous draggable portfolio track */
-    .portfolio-stage{position:relative;left:auto;width:100vw;max-width:none;margin-left:calc(50% - 50vw);padding:clamp(28px,3vw,42px) 0;display:block;overflow:hidden;transform:none!important;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}.portfolio-stage.is-dragging{cursor:grabbing}.portfolio-track{display:flex;align-items:center;gap:clamp(14px,1.8vw,26px);width:max-content;transform:translate3d(0,0,0);transition:transform .62s var(--ease);will-change:transform}.portfolio-stage.is-dragging .portfolio-track{transition:none}.portfolio-slide{--slide-scale:.72;--slide-opacity:.16;--slide-gray:1;--slide-brightness:.34;--slide-blur:1.2px;--slide-y:18px;position:relative;flex:0 0 clamp(290px,27vw,420px);aspect-ratio:9/16;padding:0;overflow:hidden;border-radius:32px;border:1px solid rgba(255,255,255,.13);background:#050608;color:#fff;opacity:var(--slide-opacity);filter:grayscale(var(--slide-gray)) brightness(var(--slide-brightness)) blur(var(--slide-blur));box-shadow:0 28px 80px rgba(0,0,0,.56);transform:translate3d(0,var(--slide-y),0) scale(var(--slide-scale));transition:transform .42s var(--ease),opacity .42s var(--ease),filter .42s var(--ease),box-shadow .42s var(--ease);cursor:pointer}.portfolio-stage.is-dragging .portfolio-slide{transition:none}.portfolio-slide.is-active{z-index:4;box-shadow:0 48px 130px rgba(0,0,0,.78),0 0 0 1px rgba(255,255,255,.05),0 0 84px rgba(118,139,210,.08)}.portfolio-slide:focus-visible{outline:2px solid #fff;outline-offset:-5px}.portfolio-slide img,.portfolio-slide video{width:100%;height:100%;display:block;object-fit:cover;pointer-events:none}.portfolio-pause-indicator{position:absolute;left:50%;top:50%;z-index:5;display:grid;width:48px;height:48px;place-items:center;border:1px solid rgba(255,255,255,.22);border-radius:50%;background:rgba(5,6,9,.42);box-shadow:0 14px 38px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.12);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);opacity:0;pointer-events:none;transform:translate(-50%,-50%) scale(.88);transition:opacity .22s var(--ease),transform .22s var(--ease)}.portfolio-pause-indicator:before{content:"";width:14px;height:17px;background:linear-gradient(90deg,rgba(255,255,255,.92) 0 4px,transparent 4px 10px,rgba(255,255,255,.92) 10px 14px);border-radius:1px}.portfolio-slide.is-active.is-paused .portfolio-pause-indicator{opacity:1;transform:translate(-50%,-50%) scale(1)}.portfolio-stage.is-image-mode .portfolio-slide{aspect-ratio:1/1}.portfolio-stage.is-video-mode .portfolio-slide{aspect-ratio:9/16}
+    .portfolio-stage{position:relative;left:auto;width:100vw;max-width:none;margin-left:calc(50% - 50vw);padding:clamp(28px,3vw,42px) 0;display:block;overflow:hidden;transform:none!important;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}.portfolio-stage.is-dragging{cursor:grabbing}.portfolio-track{display:flex;align-items:center;gap:clamp(14px,1.8vw,26px);width:max-content;transform:translate3d(0,0,0);transition:transform .62s var(--ease);will-change:auto;contain:layout style}.portfolio-stage.is-dragging .portfolio-track{transition:none;will-change:transform}.portfolio-slide{--slide-scale:.72;--slide-opacity:.16;--slide-gray:1;--slide-brightness:.34;--slide-blur:1.2px;--slide-y:18px;position:relative;flex:0 0 clamp(290px,27vw,420px);aspect-ratio:9/16;padding:0;overflow:hidden;border-radius:32px;border:1px solid rgba(255,255,255,.13);background:#050608;color:#fff;opacity:var(--slide-opacity);filter:grayscale(var(--slide-gray)) brightness(var(--slide-brightness)) blur(var(--slide-blur));box-shadow:0 28px 80px rgba(0,0,0,.56);transform:translate3d(0,var(--slide-y),0) scale(var(--slide-scale));transition:transform .42s var(--ease),opacity .42s var(--ease),filter .42s var(--ease),box-shadow .42s var(--ease);cursor:pointer}.portfolio-stage.is-dragging .portfolio-slide{transition:none}.portfolio-slide.is-active{z-index:4;box-shadow:0 48px 130px rgba(0,0,0,.78),0 0 0 1px rgba(255,255,255,.05),0 0 84px rgba(118,139,210,.08)}.portfolio-slide:focus-visible{outline:2px solid #fff;outline-offset:-5px}.portfolio-slide img,.portfolio-slide video{width:100%;height:100%;display:block;object-fit:cover;pointer-events:none}.portfolio-slide .portfolio-active-player{position:absolute;inset:0;z-index:2}.portfolio-pause-indicator{position:absolute;left:50%;top:50%;z-index:5;display:grid;width:48px;height:48px;place-items:center;border:1px solid rgba(255,255,255,.22);border-radius:50%;background:rgba(5,6,9,.42);box-shadow:0 14px 38px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.12);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);opacity:0;pointer-events:none;transform:translate(-50%,-50%) scale(.88);transition:opacity .22s var(--ease),transform .22s var(--ease)}.portfolio-pause-indicator:before{content:"";width:14px;height:17px;background:linear-gradient(90deg,rgba(255,255,255,.92) 0 4px,transparent 4px 10px,rgba(255,255,255,.92) 10px 14px);border-radius:1px}.portfolio-slide.is-active.is-paused .portfolio-pause-indicator{opacity:1;transform:translate(-50%,-50%) scale(1)}.portfolio-stage.is-image-mode .portfolio-slide{aspect-ratio:1/1}.portfolio-stage.is-video-mode .portfolio-slide{aspect-ratio:9/16}
     @media(max-width:760px){.portfolio-stage{width:100vw;margin-left:calc(50% - 50vw);padding:22px 0 30px}.portfolio-track{gap:14px}.portfolio-slide{flex-basis:72vw;border-radius:25px}}
     @media(prefers-reduced-motion:reduce){.portfolio-track,.portfolio-slide{transition:none}}
 
@@ -914,39 +914,62 @@
         video:Array.from({length:37},(_,i)=>`assets/portfolio/video-${String(i+1).padStart(2,'0')}.mp4`),
         image:Array.from({length:48},(_,i)=>`assets/portfolio/image-${String(i+1).padStart(2,'0')}.png`)
       };
-      const portfolioCloneDepth = 3;
       const portfolioStage = document.getElementById('portfolioStage');
       const portfolioTrack = document.getElementById('portfolioTrack');
-      let portfolioMode = 'video', portfolioIndex = 0, portfolioVirtualIndex = portfolioCloneDepth;
+      const portfolioPlayerParking = document.createElement('span');
+      portfolioPlayerParking.hidden = true;
+      const portfolioPlayer = document.createElement('video');
+      portfolioPlayer.className = 'portfolio-active-player';
+      portfolioPlayer.setAttribute('playsinline','');
+      portfolioPlayer.setAttribute('webkit-playsinline','');
+      portfolioPlayer.setAttribute('aria-label','Criativo em vídeo produzido pela Magemind');
+      portfolioPlayer.preload = 'none';
+      portfolioPlayer.muted = true;
+      portfolioPlayer.disablePictureInPicture = true;
+      portfolioPlayerParking.appendChild(portfolioPlayer);
+      portfolioStage.appendChild(portfolioPlayerParking);
+      let portfolioMode = 'video', portfolioIndex = 0, portfolioVirtualIndex = 0, portfolioRenderedRadius = -1;
       let portfolioSlides = [], portfolioTranslate = 0, portfolioVisible = false, portfolioWarm = false, portfolioAudioUnlocked = false;
       let portfolioDragging = false, portfolioDragMoved = false, portfolioDragStart = 0, portfolioDragBase = 0, portfolioNormalizeTimer = 0, portfolioPressedIndex = null;
-      function portfolioMedia(src) {
-        if (portfolioMode === 'image') return `<img data-src="${src}" alt="Criativo publicitário produzido pela Magemind" decoding="async" draggable="false">`;
-        return `<video data-src="${src}" playsinline muted preload="none" aria-label="Criativo em vídeo produzido pela Magemind"></video><span class="portfolio-pause-indicator" aria-hidden="true"></span>`;
+      const wrapPortfolioIndex = (index,total) => (index % total + total) % total;
+      const portfolioWindowRadius = () => window.innerWidth <= 760 ? 2 : 3;
+      const portfolioPoster = index => `assets/optimized/video-posters/video-${String(index+1).padStart(2,'0')}.webp`;
+      function portfolioMedia(src,realIndex) {
+        if (portfolioMode === 'image') return `<img src="${src}" alt="Criativo publicitário produzido pela Magemind" loading="lazy" decoding="async" draggable="false">`;
+        return `<img src="${portfolioPoster(realIndex)}" alt="Prévia do criativo em vídeo produzido pela Magemind" loading="lazy" decoding="async" draggable="false"><span class="portfolio-pause-indicator" aria-hidden="true"></span>`;
       }
-      function attachPortfolioSource(media,preload = 'metadata') {
-        if (!media || media.hasAttribute('src') || !media.dataset.src) return;
-        if (media.tagName === 'VIDEO') media.preload = preload;
-        media.src = media.dataset.src;
-        if (media.tagName === 'VIDEO') media.load();
+      function releasePortfolioPlayer() {
+        portfolioPlayer.onended = null;
+        portfolioPlayer.pause();
+        portfolioPlayerParking.appendChild(portfolioPlayer);
+        if (portfolioPlayer.hasAttribute('src') || portfolioPlayer.currentSrc) {
+          portfolioPlayer.removeAttribute('src');
+          try { portfolioPlayer.srcObject = null; } catch {}
+          portfolioPlayer.preload = 'none';
+          portfolioPlayer.load();
+        }
+        delete portfolioPlayer.dataset.source;
       }
-      function releasePortfolioSource(media) {
-        if (!media?.hasAttribute('src')) return;
-        if (media.tagName === 'VIDEO') media.pause();
-        media.removeAttribute('src');
-        if (media.tagName === 'VIDEO') { media.preload = 'none'; media.load(); }
-      }
-      function portfolioMediaRadius() {
-        const mobileViewport = window.innerWidth <= 760;
-        return portfolioMode === 'video' ? (mobileViewport ? 1 : 2) : (mobileViewport ? 2 : 3);
+      function attachPortfolioPlayer() {
+        if (portfolioMode !== 'video' || !portfolioWarm || !portfolioSlides.length) return;
+        const slide = portfolioSlides[portfolioVirtualIndex];
+        const source = portfolio.video[portfolioIndex];
+        if (!slide || !source) return;
+        if (portfolioPlayer.dataset.source !== source) {
+          releasePortfolioPlayer();
+          portfolioPlayer.src = source;
+          portfolioPlayer.dataset.source = source;
+          portfolioPlayer.preload = 'auto';
+          portfolioPlayer.load();
+        }
+        slide.appendChild(portfolioPlayer);
+        portfolioPlayer.volume = .85;
+        portfolioPlayer.muted = !portfolioAudioUnlocked;
+        portfolioPlayer.onended = () => { slide.classList.remove('is-paused'); movePortfolio(1); };
       }
       function syncPortfolioMediaSources() {
-        const radius = portfolioMediaRadius();
-        portfolioSlides.forEach((slide,index) => {
-          const media = slide.querySelector('video,img');
-          if (portfolioWarm && Math.abs(index - portfolioVirtualIndex) <= radius) attachPortfolioSource(media,index === portfolioVirtualIndex ? 'auto' : 'metadata');
-          else releasePortfolioSource(media);
-        });
+        if (portfolioMode === 'video' && portfolioWarm) attachPortfolioPlayer();
+        else releasePortfolioPlayer();
       }
       function portfolioTargetTranslate(index) {
         const slide = portfolioSlides[index];
@@ -981,57 +1004,23 @@
         portfolioTrack.style.transform = `translate3d(${value}px,0,0)`;
         updatePortfolioDepth(value);
       }
-      function activePortfolioVideo() { return portfolioSlides[portfolioVirtualIndex]?.querySelector('video') || null; }
+      function activePortfolioVideo() { return portfolioMode === 'video' && portfolioPlayer.closest('.portfolio-slide') ? portfolioPlayer : null; }
       function playActivePortfolioVideo() {
+        attachPortfolioPlayer();
         const video = activePortfolioVideo();
         if (!video || !portfolioVisible || document.hidden) return;
-        attachPortfolioSource(video,'auto');
         video.preload = 'auto';
         video.volume = .85;
         video.muted = !portfolioAudioUnlocked;
         video.play().then(()=>video.closest('.portfolio-slide')?.classList.remove('is-paused')).catch(()=>{});
       }
-      function activatePortfolioSlide(previousIndex = -1,keepTime = null) {
+      function activatePortfolioSlide() {
+        portfolioSlides.forEach(slide => slide.classList.remove('is-paused'));
         syncPortfolioMediaSources();
-        if (!portfolioWarm) return;
-        portfolioSlides.forEach((slide,index) => {
-          slide.classList.remove('is-paused');
-          const video = slide.querySelector('video');
-          if (!video) return;
-          video.onended = null;
-          if (index === portfolioVirtualIndex) {
-            attachPortfolioSource(video,'auto');
-            video.preload = 'auto';
-            video.volume = .85;
-            video.muted = !portfolioAudioUnlocked;
-            if (keepTime !== null && Number.isFinite(keepTime)) { try { video.currentTime = keepTime; } catch {} }
-            else if (index !== previousIndex) { try { video.currentTime = 0; } catch {} }
-            video.onended = () => { slide.classList.remove('is-paused'); movePortfolio(1); };
-          } else {
-            video.pause();
-            video.muted = true;
-            if (Math.abs(index - portfolioVirtualIndex) <= portfolioMediaRadius()) {
-              attachPortfolioSource(video,'metadata');
-              video.preload = 'metadata';
-              if (video.readyState >= 1 && video.currentTime === 0) { try { video.currentTime = .08; } catch {} }
-              else video.addEventListener('loadedmetadata',()=>{if(video.duration>.1&&video.currentTime===0)video.currentTime=.08},{once:true});
-            } else video.preload = 'none';
-          }
-        });
         requestAnimationFrame(playActivePortfolioVideo);
       }
       function normalizePortfolioLoop() {
-        const total = portfolio[portfolioMode].length;
-        let normalized = portfolioVirtualIndex;
-        if (normalized < portfolioCloneDepth) normalized += total;
-        else if (normalized >= portfolioCloneDepth + total) normalized -= total;
-        if (normalized === portfolioVirtualIndex) return;
-        const oldVideo = activePortfolioVideo();
-        const currentTime = oldVideo?.currentTime ?? null;
-        oldVideo?.pause();
-        portfolioVirtualIndex = normalized;
-        setPortfolioTranslate(portfolioTargetTranslate(normalized),false);
-        activatePortfolioSlide(-1,currentTime);
+        buildPortfolio();
       }
       function settlePortfolio(index,animate=true) {
         clearTimeout(portfolioNormalizeTimer);
@@ -1039,16 +1028,20 @@
         portfolioVirtualIndex = Math.max(0,Math.min(portfolioSlides.length - 1,index));
         portfolioIndex = Number(portfolioSlides[portfolioVirtualIndex].dataset.realIndex);
         portfolioStage.classList.remove('is-dragging');
+        if (previousIndex !== portfolioVirtualIndex) releasePortfolioPlayer();
         setPortfolioTranslate(portfolioTargetTranslate(portfolioVirtualIndex),animate);
-        if (previousIndex !== portfolioVirtualIndex) activatePortfolioSlide(previousIndex);
-        portfolioNormalizeTimer = setTimeout(normalizePortfolioLoop,animate && !reduceMotion ? 660 : 0);
+        if (previousIndex === portfolioVirtualIndex) activatePortfolioSlide();
+        else portfolioNormalizeTimer = setTimeout(normalizePortfolioLoop,animate && !reduceMotion ? 660 : 0);
       }
-      function movePortfolio(direction) { settlePortfolio(portfolioVirtualIndex + direction,true); }
+      function movePortfolio(direction) {
+        if (portfolioVirtualIndex !== Math.floor(portfolioSlides.length / 2)) return;
+        settlePortfolio(portfolioVirtualIndex + direction,true);
+      }
       function selectPortfolioSlide(index) {
         if (index !== portfolioVirtualIndex) { settlePortfolio(index,true); return; }
         if (portfolioMode === 'image') { openImage(portfolio[portfolioMode][portfolioIndex]); return; }
         const slide = portfolioSlides[index];
-        const video = slide?.querySelector('video');
+        const video = activePortfolioVideo();
         if (!video) return;
         if (video.paused) {
           slide.classList.remove('is-paused');
@@ -1059,18 +1052,20 @@
         }
       }
       function buildPortfolio() {
-        portfolioTrack.querySelectorAll('video').forEach(video=>video.pause());
+        releasePortfolioPlayer();
         const items = portfolio[portfolioMode], total = items.length;
-        const extended = [
-          ...items.slice(-portfolioCloneDepth).map((src,index)=>({src,real:total-portfolioCloneDepth+index})),
-          ...items.map((src,index)=>({src,real:index})),
-          ...items.slice(0,portfolioCloneDepth).map((src,index)=>({src,real:index}))
-        ];
+        const radius = portfolioWindowRadius();
+        const windowItems = Array.from({length:radius * 2 + 1},(_,index) => {
+          const offset = index - radius;
+          const real = wrapPortfolioIndex(portfolioIndex + offset,total);
+          return {src:items[real],real,offset};
+        });
+        portfolioRenderedRadius = radius;
         portfolioStage.classList.toggle('is-video-mode',portfolioMode === 'video');
         portfolioStage.classList.toggle('is-image-mode',portfolioMode === 'image');
-        portfolioTrack.innerHTML = extended.map((item,index)=>`<button class="portfolio-slide" type="button" data-virtual-index="${index}" data-real-index="${item.real}" aria-label="Selecionar criativo ${item.real+1}">${portfolioMedia(item.src)}</button>`).join('');
+        portfolioTrack.innerHTML = windowItems.map((item,index)=>`<button class="portfolio-slide" type="button" data-virtual-index="${index}" data-real-index="${item.real}" data-offset="${item.offset}" aria-label="Selecionar criativo ${item.real+1}">${portfolioMedia(item.src,item.real)}</button>`).join('');
         portfolioSlides = [...portfolioTrack.querySelectorAll('.portfolio-slide')];
-        portfolioVirtualIndex = portfolioCloneDepth + portfolioIndex;
+        portfolioVirtualIndex = radius;
         portfolioSlides.forEach((slide,index)=>slide.addEventListener('click',event=>{if(event.detail===0)selectPortfolioSlide(index)}));
         requestAnimationFrame(()=>{
           setPortfolioTranslate(portfolioTargetTranslate(portfolioVirtualIndex),false);
@@ -1087,6 +1082,7 @@
       document.addEventListener('wheel',unlockPortfolioAudio,{once:true,passive:true});
       portfolioStage.addEventListener('pointerdown',event=>{
         if (event.pointerType === 'mouse' && event.button !== 0) return;
+        if (portfolioVirtualIndex !== Math.floor(portfolioSlides.length / 2)) return;
         portfolioDragging = true;
         portfolioDragMoved = false;
         portfolioDragStart = event.clientX;
@@ -1099,7 +1095,7 @@
       portfolioStage.addEventListener('pointermove',event=>{
         if (!portfolioDragging) return;
         const delta = event.clientX - portfolioDragStart;
-        if (Math.abs(delta) > 5) portfolioDragMoved = true;
+        if (Math.abs(delta) > 5 && !portfolioDragMoved) { portfolioDragMoved = true; releasePortfolioPlayer(); }
         setPortfolioTranslate(portfolioDragBase + delta,false);
       });
       const finishPortfolioDrag = event => {
@@ -1140,8 +1136,13 @@
       new IntersectionObserver(entries=>entries.forEach(entry=>{portfolioWarm=entry.isIntersecting;if(portfolioWarm)activatePortfolioSlide();else syncPortfolioMediaSources()}),{rootMargin:'900px 0px'}).observe(portfolioSection);
       new IntersectionObserver(entries=>entries.forEach(entry=>{portfolioVisible=entry.isIntersecting;if(portfolioVisible)playActivePortfolioVideo();else activePortfolioVideo()?.pause()}),{threshold:.2}).observe(portfolioSection);
       document.addEventListener('visibilitychange',()=>{if(document.hidden)activePortfolioVideo()?.pause();else if(portfolioVisible)playActivePortfolioVideo()});
-      if ('ResizeObserver' in window) new ResizeObserver(()=>{if(!portfolioDragging)setPortfolioTranslate(portfolioTargetTranslate(portfolioVirtualIndex),false)}).observe(portfolioStage);
-      else window.addEventListener('resize',()=>setPortfolioTranslate(portfolioTargetTranslate(portfolioVirtualIndex),false));
+      const resizePortfolio = () => {
+        if (portfolioDragging) return;
+        if (portfolioRenderedRadius !== portfolioWindowRadius()) buildPortfolio();
+        else setPortfolioTranslate(portfolioTargetTranslate(portfolioVirtualIndex),false);
+      };
+      if ('ResizeObserver' in window) new ResizeObserver(resizePortfolio).observe(portfolioStage);
+      else window.addEventListener('resize',resizePortfolio);
       buildPortfolio();
 
       // Interactive grid light
