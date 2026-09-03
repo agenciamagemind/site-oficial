@@ -930,7 +930,8 @@
       portfolioStage.appendChild(portfolioPlayerParking);
       let portfolioMode = 'video', portfolioIndex = 0, portfolioVirtualIndex = 0, portfolioRenderedRadius = -1;
       let portfolioSlides = [], portfolioTranslate = 0, portfolioVisible = false, portfolioWarm = false, portfolioAudioUnlocked = false;
-      let portfolioDragging = false, portfolioDragMoved = false, portfolioDragStart = 0, portfolioDragBase = 0, portfolioNormalizeTimer = 0, portfolioPressedIndex = null;
+      let portfolioDragging = false, portfolioDragMoved = false, portfolioDragStart = 0, portfolioDragStartY = 0, portfolioDragBase = 0, portfolioDragAxis = 'pending', portfolioNormalizeTimer = 0, portfolioPressedIndex = null;
+      const portfolioGestureSlop = 9, portfolioAxisBias = 1.15;
       const wrapPortfolioIndex = (index,total) => (index % total + total) % total;
       const portfolioWindowRadius = () => window.innerWidth <= 760 ? 2 : 3;
       const portfolioPoster = index => `assets/optimized/video-posters/video-${String(index+1).padStart(2,'0')}.webp`;
@@ -1086,36 +1087,70 @@
         portfolioDragging = true;
         portfolioDragMoved = false;
         portfolioDragStart = event.clientX;
+        portfolioDragStartY = event.clientY;
         portfolioDragBase = portfolioTranslate;
+        portfolioDragAxis = 'pending';
         const pressedSlide = event.target.closest?.('.portfolio-slide');
         portfolioPressedIndex = pressedSlide ? Number(pressedSlide.dataset.virtualIndex) : null;
-        portfolioStage.classList.add('is-dragging');
-        portfolioStage.setPointerCapture?.(event.pointerId);
       });
       portfolioStage.addEventListener('pointermove',event=>{
         if (!portfolioDragging) return;
-        const delta = event.clientX - portfolioDragStart;
-        if (Math.abs(delta) > 5 && !portfolioDragMoved) { portfolioDragMoved = true; releasePortfolioPlayer(); }
-        setPortfolioTranslate(portfolioDragBase + delta,false);
+        const deltaX = event.clientX - portfolioDragStart;
+        const deltaY = event.clientY - portfolioDragStartY;
+        const absX = Math.abs(deltaX), absY = Math.abs(deltaY);
+        if (portfolioDragAxis === 'pending') {
+          if (absY > portfolioGestureSlop && absY > absX * portfolioAxisBias) {
+            portfolioDragging = false;
+            portfolioPressedIndex = null;
+            portfolioStage.classList.remove('is-dragging');
+            setPortfolioTranslate(portfolioTargetTranslate(portfolioVirtualIndex),false);
+            return;
+          }
+          if (absX > portfolioGestureSlop && absX > absY * portfolioAxisBias) {
+            portfolioDragAxis = 'horizontal';
+            portfolioDragMoved = true;
+            portfolioStage.classList.add('is-dragging');
+            portfolioStage.setPointerCapture?.(event.pointerId);
+            releasePortfolioPlayer();
+          }
+        }
+        if (portfolioDragAxis !== 'horizontal') return;
+        setPortfolioTranslate(portfolioDragBase + deltaX,false);
       });
       const finishPortfolioDrag = event => {
         if (!portfolioDragging) return;
         portfolioDragging = false;
         portfolioStage.classList.remove('is-dragging');
+        const endX = Number.isFinite(event.clientX) ? event.clientX : portfolioDragStart;
+        const endY = Number.isFinite(event.clientY) ? event.clientY : portfolioDragStartY;
+        const deltaX = endX - portfolioDragStart;
+        const deltaY = endY - portfolioDragStartY;
+        const absX = Math.abs(deltaX), absY = Math.abs(deltaY);
+        const isCancelled = event.type === 'pointercancel';
+        const isVerticalGesture = absY > portfolioGestureSlop && absY > absX * portfolioAxisBias;
+        const isTap = !isCancelled && portfolioDragAxis === 'pending' && absX <= portfolioGestureSlop && absY <= portfolioGestureSlop;
+        if (isCancelled || isVerticalGesture || (portfolioDragAxis === 'pending' && !isTap)) {
+          portfolioPressedIndex = null;
+          portfolioDragAxis = 'pending';
+          setPortfolioTranslate(portfolioTargetTranslate(portfolioVirtualIndex),false);
+          if (portfolioStage.hasPointerCapture?.(event.pointerId)) portfolioStage.releasePointerCapture(event.pointerId);
+          setTimeout(()=>{portfolioDragMoved=false},0);
+          return;
+        }
         const center = portfolioStage.clientWidth / 2;
         let nearest = portfolioVirtualIndex, nearestDistance = Infinity;
         portfolioSlides.forEach((slide,index)=>{
           const distance = Math.abs(slide.offsetLeft + slide.offsetWidth / 2 + portfolioTranslate - center);
           if (distance < nearestDistance) { nearestDistance = distance; nearest = index; }
         });
-        const delta = event.clientX - portfolioDragStart;
-        if (!portfolioDragMoved && Number.isInteger(portfolioPressedIndex)) selectPortfolioSlide(portfolioPressedIndex);
+        if (isTap && Number.isInteger(portfolioPressedIndex)) selectPortfolioSlide(portfolioPressedIndex);
         else {
-          if (nearest === portfolioVirtualIndex && Math.abs(delta) > 42) nearest += delta < 0 ? 1 : -1;
+          if (nearest === portfolioVirtualIndex && absX > 42) nearest += deltaX < 0 ? 1 : -1;
           settlePortfolio(nearest,true);
         }
         portfolioPressedIndex = null;
-        portfolioStage.releasePointerCapture?.(event.pointerId);
+        portfolioDragAxis = 'pending';
+        if (portfolioStage.hasPointerCapture?.(event.pointerId)) portfolioStage.releasePointerCapture(event.pointerId);
         setTimeout(()=>{portfolioDragMoved=false},0);
       };
       portfolioStage.addEventListener('pointerup',finishPortfolioDrag);
