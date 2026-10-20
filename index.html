@@ -140,8 +140,64 @@
           "width": 1200,
           "height": 630
         },
-        "dateModified": "2026-09-07",
+        "dateModified": "2026-10-20",
         "inLanguage": "pt-BR"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "O que a Magemind pode criar para minha empresa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Magemind desenvolve criativos em imagem e vídeo, conteúdo para redes sociais, landing pages, e-commerces e estratégias de tráfego pago. Cada solução pode ser contratada separadamente ou integrada à mesma estratégia."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como funciona o processo de produção?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O trabalho passa por briefing, mapeamento, produção, ajustes e entrega. Pelo aplicativo da Magemind, o cliente acompanha demandas, documentos e atualizações em um só lugar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso solicitar ajustes nos materiais?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. O escopo de ajustes é alinhado antes da produção para que o processo seja objetivo, organizado e fiel à estratégia aprovada."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qual é o prazo de entrega?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O prazo varia conforme o formato, a complexidade e o volume contratado. O cronograma é definido com clareza antes do início, e os planos de maior cadência priorizam uma produção contínua."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qual é a diferença entre pacote fechado e plano mensal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O pacote fechado atende uma demanda pontual com quantidade definida. O plano mensal é indicado para marcas que precisam testar, aprender e publicar com constância, reduzindo o custo por criativo conforme o volume aumenta."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Preciso chegar com roteiro e referências prontos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não. A equipe transforma as informações do briefing em direção criativa. Referências e materiais existentes ajudam, mas não são obrigatórios para começar."
+        }
       }
     ]
   }
@@ -368,6 +424,75 @@
       .infinite-plan-track{margin-top:22px}
     }
     @media(prefers-reduced-motion:reduce){.standard-plan-track .plan-card,.infinite-plan-track .plan-card,.plan-card-inner:before{transition:none}}
+
+    /* refinamentos de navegação, carregamento de mídia e conteúdo */
+    .portfolio-slide .portfolio-active-player{opacity:0;transition:opacity .2s linear}
+    .portfolio-slide.is-video-ready .portfolio-active-player{opacity:1}
+    .portfolio-slide>img{background:#050608}
+    .faq-section{position:relative;isolation:isolate;padding:clamp(96px,10vw,142px) 0;background:linear-gradient(180deg,#08070e 0,#06070b 34%,#050608 100%);overflow:hidden}
+    .faq-section:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 50% 12%,rgba(92,108,171,.12),transparent 36%),linear-gradient(180deg,rgba(8,7,14,.82),transparent 28%)}
+    .faq-head{max-width:900px;margin:0 auto clamp(42px,5vw,62px);text-align:center}
+    .faq-head h2{display:flex;align-items:baseline;justify-content:center;gap:.16em;margin:0;font-size:clamp(43px,6.2vw,76px);line-height:.96;letter-spacing:-.06em;white-space:nowrap}
+    .faq-title-script{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:400;letter-spacing:-.06em}
+    .faq-title-solid{font-family:"Poppins",-apple-system,BlinkMacSystemFont,sans-serif;font-style:normal;font-weight:600;letter-spacing:-.07em}
+    .faq-head p{max-width:640px;margin:22px auto 0;color:#9da3ad;font-size:14px;line-height:1.65;text-wrap:balance}
+    .faq-list{max-width:920px;margin:0 auto;border-top:1px solid rgba(255,255,255,.12)}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,.12)}
+    .faq-item summary{position:relative;padding:25px 58px 25px 4px;list-style:none;cursor:pointer;color:#e9ebef;font-size:clamp(16px,1.7vw,20px);font-weight:600;letter-spacing:-.025em;transition:color .25s var(--ease)}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary:after{content:"+";position:absolute;right:8px;top:50%;display:grid;width:34px;height:34px;place-items:center;transform:translateY(-50%);border:1px solid rgba(255,255,255,.14);border-radius:50%;color:#b9bec7;font-size:19px;font-weight:300;transition:transform .28s var(--ease),background .28s,color .28s}
+    .faq-item[open] summary:after{transform:translateY(-50%) rotate(45deg);background:#fff;color:#050608}
+    .faq-item summary:hover{color:#fff}
+    .faq-item p{max-width:760px;margin:-5px 58px 25px 4px;color:#9da3ad;font-size:13px;line-height:1.7}
+    @media(max-width:760px){
+      .mobile-panel>a{justify-content:center;text-align:center}
+      .mobile-panel .mobile-auth .mobile-register{background:#fff;color:#050608;border-color:#fff;box-shadow:0 10px 28px rgba(255,255,255,.12)}
+      #solucoes{padding-top:72px;padding-bottom:68px}
+      .solutions-section-head{margin-bottom:30px}
+      .solution-scroll-stack{--stack-top:76px;padding-bottom:4vh}
+      .solution-stack-card{height:min(52svh,430px);min-height:380px;margin-bottom:6vh;border-radius:23px}
+      .solution-stack-top{top:16px;left:18px;right:18px}
+      .solution-stack-content{left:19px;right:19px;bottom:20px}
+      .solution-stack-content h3{font-size:clamp(29px,8.8vw,40px);margin-bottom:10px}
+      .solution-stack-content p{font-size:12px;line-height:1.48}
+      .solution-stack-content .solution-tags{margin-top:13px;gap:6px}
+      .solution-stack-content .tag{padding:6px 8px;font-size:8px}
+      #planos.pricing-section{padding-top:82px;padding-bottom:76px}
+      .pricing-head{margin-bottom:18px}
+      .package-visual{width:150px;height:126px;aspect-ratio:auto;margin-bottom:12px;border-radius:23px}
+      .package-quantity strong{font-size:72px}
+      .package-quantity span{margin-top:8px;font-size:9px}
+      .volume-control{grid-template-columns:40px minmax(0,1fr) 40px;gap:9px}
+      .volume-step{width:40px;height:40px;font-size:19px}
+      .range-shell{padding:10px 0}
+      .pricing-experience .anchor-chips{display:flex;grid-template-columns:none;gap:6px;margin-top:8px;padding:2px 1px 5px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+      .pricing-experience .anchor-chips::-webkit-scrollbar{display:none}
+      .pricing-experience .anchor-chip{flex:0 0 auto;min-width:68px;padding:8px 9px;font-size:8px}
+      .pricing-experience .price-summary{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:22px}
+      .pricing-experience .price-item,.pricing-experience .price-item.main{grid-column:auto;grid-row:auto;min-height:78px;padding:11px 7px;border-radius:16px;text-align:center}
+      .pricing-experience .price-item span{margin-bottom:6px;font-size:7px;letter-spacing:.09em}
+      .pricing-experience .price-item del{font-size:15px}
+      .pricing-experience .price-item strong{font-size:clamp(18px,5.3vw,23px);line-height:1}
+      .pricing-experience .pricing-cta{margin-top:14px;gap:10px}
+      .pricing-experience .pricing-cta p{font-size:10px}
+      .pricing-experience .pricing-cta .btn{min-height:48px}
+      .plans-intro{margin-top:82px}
+      .faq-section{padding:82px 0 88px}
+      .faq-head{margin-bottom:30px}
+      .faq-head h2{flex-direction:column;align-items:center;gap:0;font-size:clamp(38px,11vw,50px);white-space:normal}
+      .faq-head h2 span{display:block;white-space:nowrap}
+      .faq-head p{max-width:340px;margin-top:17px;font-size:11px;line-height:1.55}
+      .faq-item summary{padding:20px 48px 20px 2px;font-size:15px;line-height:1.35}
+      .faq-item summary:after{right:2px;width:31px;height:31px}
+      .faq-item p{margin:-2px 44px 20px 2px;font-size:11.5px;line-height:1.62}
+    }
+    @media(max-width:380px){
+      .solution-stack-card{height:390px;min-height:360px}
+      .package-visual{width:140px;height:118px}
+      .package-quantity strong{font-size:68px}
+      .pricing-experience .price-item strong{font-size:17px}
+      .pricing-experience .price-item del{font-size:13px}
+    }
   </style>
 </head>
 <body>
@@ -382,8 +507,8 @@
     </nav>
   </header>
   <div class="mobile-panel glass" id="mobilePanel" aria-hidden="true">
-    <a href="#inicio">Início <span>01</span></a><a href="#processo">Processo <span>02</span></a><a href="#solucoes">Soluções <span>03</span></a><a href="#aplicativo">Aplicativo <span>04</span></a><a href="#portfolio">Portfólio <span>05</span></a><a href="#planos">Planos <span>06</span></a>
-    <div class="mobile-auth"><a href="https://app.magemind.com.br/?auth=login#login">Fazer login</a><a href="https://app.magemind.com.br/?auth=register#cadastro">Cadastrar</a></div>
+    <a href="#inicio">Início</a><a href="#processo">Processo</a><a href="#solucoes">Soluções</a><a href="#aplicativo">Aplicativo</a><a href="#portfolio">Portfólio</a><a href="#planos">Planos</a>
+    <div class="mobile-auth"><a href="https://app.magemind.com.br/?auth=login#login">Fazer login</a><a class="mobile-register" href="https://app.magemind.com.br/?auth=register#cadastro">Cadastrar</a></div>
   </div>
   <main id="conteudo">
     <section class="hero" id="inicio">
@@ -394,7 +519,6 @@
         <p class="hero-description"><span class="hero-description-line"><strong>Desde 2022</strong> produzindo imagens e vídeos estratégicos para</span><span class="hero-description-line">pequenas, médias e grandes empresas <strong>escalarem suas vendas.</strong></span></p>
         <div class="hero-actions"><a class="btn btn-primary" href="#portfolio">Explorar portfólio <span aria-hidden="true">↗</span></a><a class="btn btn-secondary glass" href="#planos">Ver planos <span aria-hidden="true">↓</span></a></div>
       </div>
-      <a class="scroll-mark" href="#plataformas">Descubra a Magemind</a>
     </section>
     <section class="platforms" id="plataformas" aria-label="Plataformas atendidas">
       <p class="platform-intro">Criativos para todas as plataformas de tráfego:</p>
@@ -552,7 +676,7 @@
           <div class="volume-panel">
             <div class="volume-control">
               <button class="volume-step" id="quantityMinus" type="button" aria-label="Diminuir quantidade">−</button>
-              <div class="range-shell"><input class="elastic-range" type="range" id="quantityRange" min="1" max="300" step="1" value="1" aria-label="Quantidade de criativos"></div>
+              <div class="range-shell"><input class="elastic-range" type="range" id="quantityRange" min="0" max="1000" step="1" value="0" aria-label="Quantidade de criativos" aria-valuetext="1 criativo"></div>
               <button class="volume-step" id="quantityPlus" type="button" aria-label="Aumentar quantidade">+</button>
             </div>
             <div class="anchor-chips" aria-label="Pacotes sugeridos"><button class="anchor-chip" type="button" data-quantity="3">3 criativos</button><button class="anchor-chip" type="button" data-quantity="6">6 criativos</button><button class="anchor-chip" type="button" data-quantity="10">10 criativos</button><button class="anchor-chip" type="button" data-quantity="24">24 criativos</button><button class="anchor-chip" type="button" data-quantity="40">40 criativos</button><button class="anchor-chip" type="button" data-quantity="90">90 criativos</button><button class="anchor-chip" type="button" data-quantity="180">180 criativos</button><button class="anchor-chip" type="button" data-quantity="300">300 criativos</button></div>
@@ -580,6 +704,42 @@
           <article class="plan-card infinite reveal"><div class="plan-card-inner"><img class="plan-watermark" src="assets/brand/magemind-mark-current.png" alt=""><span class="plan-badge">Growth Infinite+</span><h3>6 criativos por dia</h3><div class="plan-price"><del>de R$ 18.000</del><strong>R$ 1.800</strong><small>/mês</small><div class="unit-price">R$ 10,00 por criativo</div></div><ul class="plan-list"><li>180 criativos por mês</li><li>Imagens e vídeos</li><li>Suporte 24h</li><li>Consultoria semanal</li><li>Cancele quando quiser</li></ul><a class="btn btn-secondary glass" href="https://wa.me/554899391390?text=Tenho%20interesse%20no%20Growth%20Infinite%2B" target="_blank" rel="noopener">Escolher Infinite+ ↗</a></div></article>
           <article class="plan-card infinite reveal"><div class="plan-card-inner"><img class="plan-watermark" src="assets/brand/magemind-mark-current.png" alt=""><span class="plan-badge">Supreme Infinite+</span><h3>10 criativos por dia</h3><div class="plan-price"><del>de R$ 30.000</del><strong>R$ 2.400</strong><small>/mês</small><div class="unit-price">R$ 8,00 por criativo</div></div><ul class="plan-list"><li>300 criativos por mês</li><li>Imagens e vídeos</li><li>Suporte 24h</li><li>Consultoria semanal</li><li>Cancele quando quiser</li></ul><a class="btn btn-primary" href="https://wa.me/554899391390?text=Tenho%20interesse%20no%20Supreme%20Infinite%2B" target="_blank" rel="noopener">Escolher o Supreme ↗</a></div></article>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq" aria-labelledby="faqTitle">
+      <div class="container">
+        <header class="faq-head reveal">
+          <span class="process-kicker">Perguntas frequentes</span>
+          <h2 id="faqTitle"><span class="faq-title-script">Dúvidas comuns,</span><span class="faq-title-solid">respostas diretas.</span></h2>
+          <p>Informações claras para você escolher a melhor forma de criar, testar e escalar com a Magemind.</p>
+        </header>
+        <div class="faq-list reveal">
+          <details class="faq-item" open>
+            <summary>O que a Magemind pode criar para minha empresa?</summary>
+            <p>Criativos em imagem e vídeo, conteúdo para redes sociais, landing pages, e-commerces e estratégias de tráfego pago. Você pode contratar cada solução separadamente ou integrar tudo à mesma estratégia.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Como funciona o processo de produção?</summary>
+            <p>Passamos por briefing, mapeamento, produção, ajustes e entrega. Pelo aplicativo da Magemind, você acompanha demandas, documentos e atualizações em um só lugar.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Posso solicitar ajustes nos materiais?</summary>
+            <p>Sim. O escopo de ajustes é alinhado antes da produção para manter o processo objetivo, organizado e fiel à estratégia aprovada.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Qual é o prazo de entrega?</summary>
+            <p>O prazo varia conforme o formato, a complexidade e o volume contratado. O cronograma é definido com clareza antes do início, e os planos de maior cadência priorizam uma produção contínua.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Pacote fechado ou plano mensal: qual escolher?</summary>
+            <p>O pacote fechado atende uma demanda pontual com quantidade definida. O plano mensal é ideal para marcas que precisam testar, aprender e publicar com constância, reduzindo o custo por criativo conforme o volume aumenta.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Preciso chegar com roteiro e referências prontos?</summary>
+            <p>Não. Nossa equipe transforma as informações do briefing em direção criativa. Referências e materiais existentes ajudam, mas não são obrigatórios para começar.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -1072,11 +1232,36 @@
       const wrapPortfolioIndex = (index,total) => (index % total + total) % total;
       const portfolioWindowRadius = () => window.innerWidth <= 760 ? 2 : 3;
       const portfolioPoster = index => `assets/optimized/video-posters/video-${String(index+1).padStart(2,'0')}.webp`;
+      const portfolioImageCache = new Map();
+      function preloadPortfolioImage(src) {
+        if (portfolioImageCache.has(src)) return portfolioImageCache.get(src);
+        const pending = new Promise(resolve => {
+          const image = new Image();
+          image.decoding = 'async';
+          image.onload = () => {
+            if (image.decode) image.decode().catch(()=>{}).finally(resolve);
+            else resolve();
+          };
+          image.onerror = resolve;
+          image.src = src;
+        });
+        portfolioImageCache.set(src,pending);
+        return pending;
+      }
+      function warmPortfolioWindow(mode=portfolioMode,index=portfolioIndex) {
+        const items = portfolio[mode], total = items.length, radius = portfolioWindowRadius();
+        const sources = Array.from({length:radius * 2 + 1},(_,slot) => {
+          const real = wrapPortfolioIndex(index + slot - radius,total);
+          return mode === 'image' ? items[real] : portfolioPoster(real);
+        });
+        return Promise.all(sources.map(preloadPortfolioImage));
+      }
       function portfolioMedia(src,realIndex) {
         if (portfolioMode === 'image') return `<img src="${src}" alt="Criativo publicitário produzido pela Magemind" loading="lazy" decoding="async" draggable="false">`;
         return `<img src="${portfolioPoster(realIndex)}" alt="Prévia do criativo em vídeo produzido pela Magemind" loading="lazy" decoding="async" draggable="false"><span class="portfolio-pause-indicator" aria-hidden="true"></span>`;
       }
       function releasePortfolioPlayer() {
+        portfolioPlayer.closest('.portfolio-slide')?.classList.remove('is-video-ready');
         portfolioPlayer.onended = null;
         portfolioPlayer.pause();
         portfolioPlayerParking.appendChild(portfolioPlayer);
@@ -1103,6 +1288,7 @@
         slide.appendChild(portfolioPlayer);
         portfolioPlayer.volume = .85;
         portfolioPlayer.muted = !portfolioAudioUnlocked;
+        if (portfolioPlayer.readyState >= 2) slide.classList.add('is-video-ready');
         portfolioPlayer.onended = () => { slide.classList.remove('is-paused'); movePortfolio(1); };
       }
       function syncPortfolioMediaSources() {
@@ -1150,15 +1336,21 @@
         video.preload = 'auto';
         video.volume = .85;
         video.muted = !portfolioAudioUnlocked;
-        video.play().then(()=>video.closest('.portfolio-slide')?.classList.remove('is-paused')).catch(()=>{});
+        video.play().then(()=>{
+          const slide = video.closest('.portfolio-slide');
+          slide?.classList.add('is-video-ready');
+          slide?.classList.remove('is-paused');
+        }).catch(()=>{});
       }
       function activatePortfolioSlide() {
         portfolioSlides.forEach(slide => slide.classList.remove('is-paused'));
         syncPortfolioMediaSources();
         requestAnimationFrame(playActivePortfolioVideo);
       }
-      function normalizePortfolioLoop() {
-        buildPortfolio();
+      async function normalizePortfolioLoop() {
+        const mode = portfolioMode, index = portfolioIndex;
+        await warmPortfolioWindow(mode,index);
+        if (mode === portfolioMode && index === portfolioIndex) buildPortfolio();
       }
       function settlePortfolio(index,animate=true) {
         clearTimeout(portfolioNormalizeTimer);
@@ -1210,6 +1402,8 @@
           activatePortfolioSlide();
         });
       }
+      portfolioPlayer.addEventListener('loadeddata',()=>portfolioPlayer.closest('.portfolio-slide')?.classList.add('is-video-ready'));
+      portfolioPlayer.addEventListener('playing',()=>portfolioPlayer.closest('.portfolio-slide')?.classList.add('is-video-ready'));
       function unlockPortfolioAudio() {
         portfolioAudioUnlocked = true;
         const video = activePortfolioVideo();
@@ -1298,14 +1492,19 @@
       });
       portfolioStage.addEventListener('wheel',event=>{if(Math.abs(event.deltaX)<24)return;event.preventDefault();movePortfolio(event.deltaX>0?1:-1)},{passive:false});
       document.querySelectorAll('.media-switch button').forEach(button=>button.addEventListener('click',()=>{
+        clearTimeout(portfolioNormalizeTimer);
         portfolioMode = button.dataset.mode;
         portfolioIndex = 0;
         document.querySelectorAll('.media-switch button').forEach(other=>{other.classList.toggle('active',other===button);other.setAttribute('aria-selected',String(other===button))});
-        buildPortfolio();
+        warmPortfolioWindow().then(()=>buildPortfolio());
       }));
       const modal = document.getElementById('mediaModal'), modalImage = document.getElementById('modalImage'); function openImage(src){modalImage.src=src;modal.classList.add('open');document.body.style.overflow='hidden'} function closeModal(){modal.classList.remove('open');document.body.style.overflow=''} modal.querySelector('.modal-close').addEventListener('click',closeModal); modal.addEventListener('click',event=>{if(event.target===modal)closeModal()}); document.addEventListener('keydown',event=>{if(event.key==='Escape')closeModal()});
       const portfolioSection = document.getElementById('portfolio');
-      new IntersectionObserver(entries=>entries.forEach(entry=>{portfolioWarm=entry.isIntersecting;if(portfolioWarm)activatePortfolioSlide();else syncPortfolioMediaSources()}),{rootMargin:'900px 0px'}).observe(portfolioSection);
+      new IntersectionObserver(entries=>entries.forEach(entry=>{
+        portfolioWarm=entry.isIntersecting;
+        if(portfolioWarm) warmPortfolioWindow().then(()=>{if(portfolioWarm)activatePortfolioSlide()});
+        else syncPortfolioMediaSources();
+      }),{rootMargin:'900px 0px'}).observe(portfolioSection);
       new IntersectionObserver(entries=>entries.forEach(entry=>{portfolioVisible=entry.isIntersecting;if(portfolioVisible)playActivePortfolioVideo();else activePortfolioVideo()?.pause()}),{threshold:.2}).observe(portfolioSection);
       document.addEventListener('visibilitychange',()=>{if(document.hidden)activePortfolioVideo()?.pause();else if(portfolioVisible)playActivePortfolioVideo()});
       const resizePortfolio = () => {
@@ -1331,16 +1530,30 @@
       };
       const brl = (value,decimals=0) => new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',minimumFractionDigits:decimals,maximumFractionDigits:decimals}).format(value);
       const range = document.getElementById('quantityRange');
-      function updatePricing(quantity) {
-        quantity = Math.max(1,Math.min(300,Number(quantity))); range.value = quantity;
-        const total = priceFor(quantity), original = quantity*100, unit = total/quantity, fill = (quantity-1)/299*100;
+      const rangeCurve = 2.35;
+      const quantityFromRange = value => Math.round(1 + 299 * Math.pow(Math.max(0,Math.min(1000,Number(value))) / 1000,rangeCurve));
+      const rangeFromQuantity = quantity => Math.round(1000 * Math.pow((Math.max(1,Math.min(300,Number(quantity))) - 1) / 299,1 / rangeCurve));
+      function updatePricing(quantity,syncRange=true) {
+        quantity = Math.max(1,Math.min(300,Math.round(Number(quantity))));
+        if(syncRange) range.value = rangeFromQuantity(quantity);
+        const total = priceFor(quantity), original = quantity*100, unit = total/quantity, fill = Number(range.value)/10;
         range.style.setProperty('--fill',fill+'%'); document.getElementById('quantityValue').textContent=quantity;
         document.getElementById('quantityLabel').textContent=(quantity===1?'criativo':'criativos'); document.getElementById('originalPrice').textContent=brl(original);
         document.getElementById('packagePrice').textContent=brl(total); document.getElementById('unitPrice').textContent=brl(unit,2); document.getElementById('savingText').textContent=`Você economiza ${brl(original-total)} neste volume.`;
         document.getElementById('packageCta').href=`https://wa.me/554899391390?text=${encodeURIComponent(`Olá, quero um pacote com ${quantity} criativo${quantity===1?'':'s'} por ${brl(total)}.`)}`;
+        range.setAttribute('aria-valuetext',`${quantity} criativo${quantity===1?'':'s'}`);
+        range.dataset.quantity = quantity;
         document.querySelectorAll('.anchor-chip').forEach(chip=>chip.classList.toggle('active',Number(chip.dataset.quantity)===quantity));
       }
-      range.addEventListener('input',()=>updatePricing(range.value)); document.getElementById('quantityMinus').addEventListener('click',()=>updatePricing(Number(range.value)-1)); document.getElementById('quantityPlus').addEventListener('click',()=>updatePricing(Number(range.value)+1)); document.querySelectorAll('.anchor-chip').forEach(chip=>chip.addEventListener('click',()=>updatePricing(chip.dataset.quantity))); updatePricing(1);
+      range.addEventListener('input',()=>updatePricing(quantityFromRange(range.value),false));
+      range.addEventListener('keydown',event=>{
+        const quantity = Number(range.dataset.quantity||1);
+        if(['ArrowLeft','ArrowDown'].includes(event.key)){event.preventDefault();updatePricing(quantity-1)}
+        if(['ArrowRight','ArrowUp'].includes(event.key)){event.preventDefault();updatePricing(quantity+1)}
+        if(event.key==='Home'){event.preventDefault();updatePricing(1)}
+        if(event.key==='End'){event.preventDefault();updatePricing(300)}
+      });
+      document.getElementById('quantityMinus').addEventListener('click',()=>updatePricing(Number(range.dataset.quantity||1)-1)); document.getElementById('quantityPlus').addEventListener('click',()=>updatePricing(Number(range.dataset.quantity||1)+1)); document.querySelectorAll('.anchor-chip').forEach(chip=>chip.addEventListener('click',()=>updatePricing(chip.dataset.quantity))); updatePricing(1);
 
       // Clean card depth response and mobile focus.
       document.querySelectorAll('.plan-card').forEach(card=>{
