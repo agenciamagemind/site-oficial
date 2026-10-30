@@ -312,21 +312,10 @@
     .footer-bottom{display:flex;justify-content:space-between;gap:16px;padding-top:24px;border-top:1px solid var(--line);color:#767c86;font-size:10px;line-height:1.6}
     @media(max-width:760px){.site-footer{padding-top:46px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px 20px;padding-bottom:34px}.footer-brand{grid-column:1/-1}.footer-brand .brand{margin-bottom:18px}.footer-brand p{max-width:340px}.footer-column{padding-top:0;gap:12px}.footer-column a{font-size:11px}.footer-bottom{flex-direction:column;gap:8px;padding-top:20px}}
     .portfolio-youtube-actions{display:flex;justify-content:center;margin-top:22px}
+    .portfolio-stage.is-image-mode~.portfolio-youtube-actions{display:none}
     .portfolio-youtube-link{min-height:46px;border-radius:999px;color:#cdd2da;font-size:12px;padding:0 22px}
     .portfolio-youtube-link svg{width:21px;height:21px;flex-shrink:0;fill:currentColor}
-    .portfolio-status{max-width:440px;margin:16px auto 0;text-align:center;font-size:12px;line-height:1.5;color:#a7abb4}
-    .portfolio-player-host{position:absolute;left:50%;z-index:5;transform:translateX(-50%);visibility:hidden;opacity:0;overflow:hidden;border-radius:32px;pointer-events:none;transition:opacity .16s linear}
-    .portfolio-player-host.is-visible{visibility:visible;opacity:1}
-    .portfolio-player-host iframe{width:100%;height:100%;display:block;border:0}
-    .portfolio-video-toggle{position:absolute;left:50%;top:50%;z-index:6;display:grid;place-items:center;width:48px;height:48px;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.22);border-radius:50%;background:rgba(5,6,9,.46);color:white;pointer-events:auto;cursor:pointer;opacity:0;transition:opacity .2s var(--ease)}
-    .portfolio-player-host.is-paused .portfolio-video-toggle,.portfolio-player-host.is-awaiting-play .portfolio-video-toggle{opacity:1}
-    .portfolio-video-toggle:focus-visible{opacity:1;outline:2px solid white;outline-offset:4px}
-    .portfolio-video-toggle:before{content:"";width:14px;height:17px;background:linear-gradient(90deg,#fff 0 4px,transparent 4px 10px,#fff 10px 14px)}
-    .portfolio-player-host.is-awaiting-play .portfolio-video-toggle:before{width:0;height:0;background:none;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:14px solid #fff;margin-left:4px}
-    .portfolio-slide.is-awaiting-play .portfolio-pause-indicator{opacity:1;transform:translate(-50%,-50%) scale(1)}
-    .portfolio-slide.is-awaiting-play .portfolio-pause-indicator:before{width:0;height:0;background:none;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:12px solid white;margin-left:3px}
-    @media(max-width:760px){.portfolio-player-host{border-radius:25px}.portfolio-youtube-link{min-height:44px;max-width:94%;padding:0 17px;font-size:10px}}
-    @media(prefers-reduced-motion:reduce){.portfolio-player-host{transition:none}}
+    @media(max-width:760px){.portfolio-youtube-link{min-height:44px;max-width:94%;padding:0 17px;font-size:10px}}
     .mobile-panel{display:none}
 
     @media(max-width:1000px){.app-stage{min-height:700px}.desktop-device{width:78vw}.phone-device{width:210px}.plan-track{grid-template-columns:repeat(2,1fr)}.pricing-top{gap:28px}.solutions-layout{grid-template-columns:.78fr 1.22fr}.process-detail{gap:34px}}
@@ -694,8 +683,7 @@
         </header>
         <div class="media-switch glass reveal" role="tablist" aria-label="Tipo de portfólio"><button class="active" data-mode="video" role="tab" aria-selected="true">Vídeos</button><button data-mode="image" role="tab" aria-selected="false">Imagens</button></div>
         <div class="portfolio-stage is-video-mode reveal" id="portfolioStage" role="region" aria-roledescription="carrossel horizontal" aria-label="Portfólio da Magemind" tabindex="0"><div class="portfolio-track" id="portfolioTrack" aria-live="polite"></div></div>
-        <p class="portfolio-status" id="portfolioStatus" role="status" hidden></p>
-        <div class="portfolio-youtube-actions reveal"><a class="btn btn-secondary glass portfolio-youtube-link" href="https://www.youtube.com/playlist?list=PLfnBLh_pFxgg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.8.5 8.9.5 8.9.5s7.1 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15.5v-7l6.1 3.5-6.1 3.5Z"/></svg><span>Assistir portfólio completo no YouTube</span><span aria-hidden="true">↗</span></a></div>
+        <div class="portfolio-youtube-actions reveal"><a class="btn btn-secondary glass portfolio-youtube-link" href="https://www.youtube.com/@magemind_oficial/playlists" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.8.5 8.9.5 8.9.5s7.1 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15.5v-7l6.1 3.5-6.1 3.5Z"/></svg><span>Assistir portfólio completo pelo YouTube</span><span aria-hidden="true">↗</span></a></div>
       </div>
     </section>
 
@@ -789,12 +777,13 @@
         <div class="footer-brand">
           <a class="brand" href="#inicio" aria-label="Magemind — início"><img src="assets/brand/magemind-mark-current.png" alt=""><span>Magemind</span></a>
           <p>Qualidade é o mínimo, entregamos resultados.</p>
-          <p>Criativos, sites e estratégias para transformar atenção em vendas.</p>
+          <p>Fábrica de criativos, sites e aplicativos pensados para escalar suas vendas.</p>
         </div>
         <nav class="footer-column" aria-label="Links rápidos">
           <h2>Links rápidos</h2>
           <a href="#planos">Planos e preços</a>
-          <a href="#solucoes">Catálogo completo</a>
+          <a href="#aplicativo">Aplicativo</a>
+          <a href="https://app.magemind.com.br/?auth=register#cadastro">Cadastre-se</a>
           <a href="#portfolio">Portfólio</a>
         </nav>
         <div class="footer-column">
@@ -802,9 +791,10 @@
           <a href="mailto:agenciamagemind@gmail.com">agenciamagemind@gmail.com</a>
           <a href="https://www.instagram.com/magemind_/" target="_blank" rel="noopener">Instagram ↗</a>
           <a href="https://wa.me/554899391390" target="_blank" rel="noopener">WhatsApp ↗</a>
+          <a href="https://www.youtube.com/@magemind_oficial" target="_blank" rel="noopener">YouTube ↗</a>
         </div>
       </div>
-      <div class="footer-bottom"><span>© 2026 Magemind. Todos os direitos reservados.</span><span>CNPJ: 49.041.495/0001-96</span></div>
+      <div class="footer-bottom"><span>© 2022 Magemind. Todos os direitos reservados.</span><span>CNPJ: 49.041.495/0001-96</span></div>
     </div>
   </footer>
   <div class="media-modal" id="mediaModal" role="dialog" aria-modal="true" aria-label="Visualização ampliada"><button class="modal-close" aria-label="Fechar">×</button><img id="modalImage" alt="Criativo ampliado"></div>
@@ -1273,7 +1263,315 @@
         requestAnimationFrame(() => showLenticular(2,false));
       }
 
-      // One reusable YouTube player is initialized by assets/js/portfolio-youtube.js.
+      // Continuous, centered and draggable portfolio track.
+      const portfolio = {
+        video:Array.from({length:37},(_,i)=>`assets/portfolio/video-${String(i+1).padStart(2,'0')}.mp4`),
+        image:Array.from({length:48},(_,i)=>`assets/portfolio/image-${String(i+1).padStart(2,'0')}.png`)
+      };
+      const portfolioStage = document.getElementById('portfolioStage');
+      const portfolioTrack = document.getElementById('portfolioTrack');
+      const portfolioPlayerParking = document.createElement('span');
+      portfolioPlayerParking.hidden = true;
+      const portfolioPlayer = document.createElement('video');
+      portfolioPlayer.className = 'portfolio-active-player';
+      portfolioPlayer.setAttribute('playsinline','');
+      portfolioPlayer.setAttribute('webkit-playsinline','');
+      portfolioPlayer.setAttribute('aria-label','Criativo em vídeo produzido pela Magemind');
+      portfolioPlayer.preload = 'none';
+      portfolioPlayer.muted = true;
+      portfolioPlayer.disablePictureInPicture = true;
+      portfolioPlayerParking.appendChild(portfolioPlayer);
+      portfolioStage.appendChild(portfolioPlayerParking);
+      let portfolioMode = 'video', portfolioIndex = 0, portfolioVirtualIndex = 0, portfolioRenderedRadius = -1;
+      let portfolioSlides = [], portfolioTranslate = 0, portfolioVisible = false, portfolioWarm = false, portfolioAudioUnlocked = false;
+      let portfolioDragging = false, portfolioDragMoved = false, portfolioDragStart = 0, portfolioDragStartY = 0, portfolioDragBase = 0, portfolioDragAxis = 'pending', portfolioNormalizeTimer = 0, portfolioPressedIndex = null;
+      const portfolioGestureSlop = 9, portfolioAxisBias = 1.15;
+      const wrapPortfolioIndex = (index,total) => (index % total + total) % total;
+      const portfolioWindowRadius = () => window.innerWidth <= 760 ? 2 : 3;
+      const portfolioPoster = index => `assets/optimized/video-posters/video-${String(index+1).padStart(2,'0')}.webp`;
+      const portfolioImageCache = new Map();
+      function preloadPortfolioImage(src) {
+        if (portfolioImageCache.has(src)) return portfolioImageCache.get(src);
+        const pending = new Promise(resolve => {
+          const image = new Image();
+          image.decoding = 'async';
+          image.onload = () => {
+            if (image.decode) image.decode().catch(()=>{}).finally(resolve);
+            else resolve();
+          };
+          image.onerror = resolve;
+          image.src = src;
+        });
+        portfolioImageCache.set(src,pending);
+        return pending;
+      }
+      function warmPortfolioWindow(mode=portfolioMode,index=portfolioIndex) {
+        const items = portfolio[mode], total = items.length, radius = portfolioWindowRadius();
+        const sources = Array.from({length:radius * 2 + 1},(_,slot) => {
+          const real = wrapPortfolioIndex(index + slot - radius,total);
+          return mode === 'image' ? items[real] : portfolioPoster(real);
+        });
+        return Promise.all(sources.map(preloadPortfolioImage));
+      }
+      function portfolioMedia(src,realIndex) {
+        if (portfolioMode === 'image') return `<img src="${src}" alt="Criativo publicitário produzido pela Magemind" loading="lazy" decoding="async" draggable="false">`;
+        return `<img src="${portfolioPoster(realIndex)}" alt="Prévia do criativo em vídeo produzido pela Magemind" loading="lazy" decoding="async" draggable="false"><span class="portfolio-pause-indicator" aria-hidden="true"></span>`;
+      }
+      function releasePortfolioPlayer() {
+        portfolioPlayer.closest('.portfolio-slide')?.classList.remove('is-video-ready');
+        portfolioPlayer.onended = null;
+        portfolioPlayer.pause();
+        portfolioPlayerParking.appendChild(portfolioPlayer);
+        if (portfolioPlayer.hasAttribute('src') || portfolioPlayer.currentSrc) {
+          portfolioPlayer.removeAttribute('src');
+          try { portfolioPlayer.srcObject = null; } catch {}
+          portfolioPlayer.preload = 'none';
+          portfolioPlayer.load();
+        }
+        delete portfolioPlayer.dataset.source;
+      }
+      function attachPortfolioPlayer() {
+        if (portfolioMode !== 'video' || !portfolioWarm || !portfolioSlides.length) return;
+        const slide = portfolioSlides[portfolioVirtualIndex];
+        const source = portfolio.video[portfolioIndex];
+        if (!slide || !source) return;
+        if (portfolioPlayer.dataset.source !== source) {
+          releasePortfolioPlayer();
+          portfolioPlayer.src = source;
+          portfolioPlayer.dataset.source = source;
+          portfolioPlayer.preload = 'auto';
+          portfolioPlayer.load();
+        }
+        slide.appendChild(portfolioPlayer);
+        portfolioPlayer.volume = .85;
+        portfolioPlayer.muted = !portfolioAudioUnlocked;
+        if (portfolioPlayer.readyState >= 2) slide.classList.add('is-video-ready');
+        portfolioPlayer.onended = () => { slide.classList.remove('is-paused'); movePortfolio(1); };
+      }
+      function syncPortfolioMediaSources() {
+        if (portfolioMode === 'video' && portfolioWarm) attachPortfolioPlayer();
+        else releasePortfolioPlayer();
+      }
+      function portfolioTargetTranslate(index) {
+        const slide = portfolioSlides[index];
+        return slide ? (portfolioStage.clientWidth / 2) - (slide.offsetLeft + slide.offsetWidth / 2) : 0;
+      }
+      function updatePortfolioDepth(translate = portfolioTranslate) {
+        if (!portfolioSlides.length) return;
+        const center = portfolioStage.clientWidth / 2;
+        const step = portfolioSlides[0].offsetWidth + (parseFloat(getComputedStyle(portfolioTrack).gap) || 14);
+        let nearestIndex = portfolioVirtualIndex, nearestDistance = Infinity;
+        const distances = portfolioSlides.map((slide,index) => {
+          const distancePixels = Math.abs(slide.offsetLeft + slide.offsetWidth / 2 + translate - center);
+          if (distancePixels < nearestDistance) { nearestDistance = distancePixels; nearestIndex = index; }
+          return distancePixels / step;
+        });
+        portfolioSlides.forEach((slide,index) => {
+          const distance = Math.min(distances[index],3);
+          slide.style.setProperty('--slide-scale',String(Math.max(.68,1 - distance * .14)));
+          slide.style.setProperty('--slide-opacity',String(Math.max(.1,1 - distance * .36)));
+          slide.style.setProperty('--slide-gray',String(Math.min(1,distance * .9)));
+          slide.style.setProperty('--slide-brightness',String(Math.max(.3,1 - distance * .27)));
+          slide.style.setProperty('--slide-blur',`${Math.max(0,(distance - .72) * .8)}px`);
+          slide.style.setProperty('--slide-y',`${Math.min(24,distance * 12)}px`);
+          slide.classList.toggle('is-active',index === nearestIndex);
+          slide.setAttribute('aria-current',String(index === portfolioVirtualIndex));
+          slide.tabIndex = index === portfolioVirtualIndex ? 0 : -1;
+        });
+      }
+      function setPortfolioTranslate(value,animate=true) {
+        portfolioTranslate = value;
+        portfolioTrack.style.transition = animate && !reduceMotion ? 'transform .62s cubic-bezier(.2,.72,.2,1)' : 'none';
+        portfolioTrack.style.transform = `translate3d(${value}px,0,0)`;
+        updatePortfolioDepth(value);
+      }
+      function activePortfolioVideo() { return portfolioMode === 'video' && portfolioPlayer.closest('.portfolio-slide') ? portfolioPlayer : null; }
+      function playActivePortfolioVideo() {
+        attachPortfolioPlayer();
+        const video = activePortfolioVideo();
+        if (!video || !portfolioVisible || document.hidden) return;
+        video.preload = 'auto';
+        video.volume = .85;
+        video.muted = !portfolioAudioUnlocked;
+        video.play().then(()=>{
+          const slide = video.closest('.portfolio-slide');
+          slide?.classList.add('is-video-ready');
+          slide?.classList.remove('is-paused');
+        }).catch(()=>{});
+      }
+      function activatePortfolioSlide() {
+        portfolioSlides.forEach(slide => slide.classList.remove('is-paused'));
+        syncPortfolioMediaSources();
+        requestAnimationFrame(playActivePortfolioVideo);
+      }
+      async function normalizePortfolioLoop() {
+        const mode = portfolioMode, index = portfolioIndex;
+        await warmPortfolioWindow(mode,index);
+        if (mode === portfolioMode && index === portfolioIndex) buildPortfolio();
+      }
+      function settlePortfolio(index,animate=true) {
+        clearTimeout(portfolioNormalizeTimer);
+        const previousIndex = portfolioVirtualIndex;
+        portfolioVirtualIndex = Math.max(0,Math.min(portfolioSlides.length - 1,index));
+        portfolioIndex = Number(portfolioSlides[portfolioVirtualIndex].dataset.realIndex);
+        portfolioStage.classList.remove('is-dragging');
+        if (previousIndex !== portfolioVirtualIndex) releasePortfolioPlayer();
+        setPortfolioTranslate(portfolioTargetTranslate(portfolioVirtualIndex),animate);
+        if (previousIndex === portfolioVirtualIndex) activatePortfolioSlide();
+        else portfolioNormalizeTimer = setTimeout(normalizePortfolioLoop,animate && !reduceMotion ? 660 : 0);
+      }
+      function movePortfolio(direction) {
+        if (portfolioVirtualIndex !== Math.floor(portfolioSlides.length / 2)) return;
+        settlePortfolio(portfolioVirtualIndex + direction,true);
+      }
+      function selectPortfolioSlide(index) {
+        if (index !== portfolioVirtualIndex) { settlePortfolio(index,true); return; }
+        if (portfolioMode === 'image') { openImage(portfolio[portfolioMode][portfolioIndex]); return; }
+        const slide = portfolioSlides[index];
+        const video = activePortfolioVideo();
+        if (!video) return;
+        if (video.paused) {
+          slide.classList.remove('is-paused');
+          video.play().then(()=>slide.classList.remove('is-paused')).catch(()=>slide.classList.add('is-paused'));
+        } else {
+          video.pause();
+          slide.classList.add('is-paused');
+        }
+      }
+      function buildPortfolio() {
+        releasePortfolioPlayer();
+        const items = portfolio[portfolioMode], total = items.length;
+        const radius = portfolioWindowRadius();
+        const windowItems = Array.from({length:radius * 2 + 1},(_,index) => {
+          const offset = index - radius;
+          const real = wrapPortfolioIndex(portfolioIndex + offset,total);
+          return {src:items[real],real,offset};
+        });
+        portfolioRenderedRadius = radius;
+        portfolioStage.classList.toggle('is-video-mode',portfolioMode === 'video');
+        portfolioStage.classList.toggle('is-image-mode',portfolioMode === 'image');
+        portfolioTrack.innerHTML = windowItems.map((item,index)=>`<button class="portfolio-slide" type="button" data-virtual-index="${index}" data-real-index="${item.real}" data-offset="${item.offset}" aria-label="Selecionar criativo ${item.real+1}">${portfolioMedia(item.src,item.real)}</button>`).join('');
+        portfolioSlides = [...portfolioTrack.querySelectorAll('.portfolio-slide')];
+        portfolioVirtualIndex = radius;
+        portfolioSlides.forEach((slide,index)=>slide.addEventListener('click',event=>{if(event.detail===0)selectPortfolioSlide(index)}));
+        requestAnimationFrame(()=>{
+          setPortfolioTranslate(portfolioTargetTranslate(portfolioVirtualIndex),false);
+          activatePortfolioSlide();
+        });
+      }
+      portfolioPlayer.addEventListener('loadeddata',()=>portfolioPlayer.closest('.portfolio-slide')?.classList.add('is-video-ready'));
+      portfolioPlayer.addEventListener('playing',()=>portfolioPlayer.closest('.portfolio-slide')?.classList.add('is-video-ready'));
+      function unlockPortfolioAudio() {
+        portfolioAudioUnlocked = true;
+        const video = activePortfolioVideo();
+        if (video) { video.muted = false; video.volume = .85; if (portfolioVisible) video.play().catch(()=>{}); }
+      }
+      document.addEventListener('pointerdown',unlockPortfolioAudio,{once:true,capture:true});
+      document.addEventListener('keydown',unlockPortfolioAudio,{once:true,capture:true});
+      document.addEventListener('wheel',unlockPortfolioAudio,{once:true,passive:true});
+      portfolioStage.addEventListener('pointerdown',event=>{
+        if (event.pointerType === 'mouse' && event.button !== 0) return;
+        if (portfolioVirtualIndex !== Math.floor(portfolioSlides.length / 2)) return;
+        portfolioDragging = true;
+        portfolioDragMoved = false;
+        portfolioDragStart = event.clientX;
+        portfolioDragStartY = event.clientY;
+        portfolioDragBase = portfolioTranslate;
+        portfolioDragAxis = 'pending';
+        const pressedSlide = event.target.closest?.('.portfolio-slide');
+        portfolioPressedIndex = pressedSlide ? Number(pressedSlide.dataset.virtualIndex) : null;
+      });
+      portfolioStage.addEventListener('pointermove',event=>{
+        if (!portfolioDragging) return;
+        const deltaX = event.clientX - portfolioDragStart;
+        const deltaY = event.clientY - portfolioDragStartY;
+        const absX = Math.abs(deltaX), absY = Math.abs(deltaY);
+        if (portfolioDragAxis === 'pending') {
+          if (absY > portfolioGestureSlop && absY > absX * portfolioAxisBias) {
+            portfolioDragging = false;
+            portfolioPressedIndex = null;
+            portfolioStage.classList.remove('is-dragging');
+            setPortfolioTranslate(portfolioTargetTranslate(portfolioVirtualIndex),false);
+            return;
+          }
+          if (absX > portfolioGestureSlop && absX > absY * portfolioAxisBias) {
+            portfolioDragAxis = 'horizontal';
+            portfolioDragMoved = true;
+            portfolioStage.classList.add('is-dragging');
+            portfolioStage.setPointerCapture?.(event.pointerId);
+            releasePortfolioPlayer();
+          }
+        }
+        if (portfolioDragAxis !== 'horizontal') return;
+        setPortfolioTranslate(portfolioDragBase + deltaX,false);
+      });
+      const finishPortfolioDrag = event => {
+        if (!portfolioDragging) return;
+        portfolioDragging = false;
+        portfolioStage.classList.remove('is-dragging');
+        const endX = Number.isFinite(event.clientX) ? event.clientX : portfolioDragStart;
+        const endY = Number.isFinite(event.clientY) ? event.clientY : portfolioDragStartY;
+        const deltaX = endX - portfolioDragStart;
+        const deltaY = endY - portfolioDragStartY;
+        const absX = Math.abs(deltaX), absY = Math.abs(deltaY);
+        const isCancelled = event.type === 'pointercancel';
+        const isVerticalGesture = absY > portfolioGestureSlop && absY > absX * portfolioAxisBias;
+        const isTap = !isCancelled && portfolioDragAxis === 'pending' && absX <= portfolioGestureSlop && absY <= portfolioGestureSlop;
+        if (isCancelled || isVerticalGesture || (portfolioDragAxis === 'pending' && !isTap)) {
+          portfolioPressedIndex = null;
+          portfolioDragAxis = 'pending';
+          setPortfolioTranslate(portfolioTargetTranslate(portfolioVirtualIndex),false);
+          if (portfolioStage.hasPointerCapture?.(event.pointerId)) portfolioStage.releasePointerCapture(event.pointerId);
+          setTimeout(()=>{portfolioDragMoved=false},0);
+          return;
+        }
+        const center = portfolioStage.clientWidth / 2;
+        let nearest = portfolioVirtualIndex, nearestDistance = Infinity;
+        portfolioSlides.forEach((slide,index)=>{
+          const distance = Math.abs(slide.offsetLeft + slide.offsetWidth / 2 + portfolioTranslate - center);
+          if (distance < nearestDistance) { nearestDistance = distance; nearest = index; }
+        });
+        if (isTap && Number.isInteger(portfolioPressedIndex)) selectPortfolioSlide(portfolioPressedIndex);
+        else {
+          if (nearest === portfolioVirtualIndex && absX > 42) nearest += deltaX < 0 ? 1 : -1;
+          settlePortfolio(nearest,true);
+        }
+        portfolioPressedIndex = null;
+        portfolioDragAxis = 'pending';
+        if (portfolioStage.hasPointerCapture?.(event.pointerId)) portfolioStage.releasePointerCapture(event.pointerId);
+        setTimeout(()=>{portfolioDragMoved=false},0);
+      };
+      portfolioStage.addEventListener('pointerup',finishPortfolioDrag);
+      portfolioStage.addEventListener('pointercancel',finishPortfolioDrag);
+      portfolioStage.addEventListener('keydown',event=>{
+        if(event.key==='ArrowLeft'){event.preventDefault();movePortfolio(-1)}
+        if(event.key==='ArrowRight'){event.preventDefault();movePortfolio(1)}
+      });
+      portfolioStage.addEventListener('wheel',event=>{if(Math.abs(event.deltaX)<24)return;event.preventDefault();movePortfolio(event.deltaX>0?1:-1)},{passive:false});
+      document.querySelectorAll('.media-switch button').forEach(button=>button.addEventListener('click',()=>{
+        clearTimeout(portfolioNormalizeTimer);
+        portfolioMode = button.dataset.mode;
+        portfolioIndex = 0;
+        document.querySelectorAll('.media-switch button').forEach(other=>{other.classList.toggle('active',other===button);other.setAttribute('aria-selected',String(other===button))});
+        warmPortfolioWindow().then(()=>buildPortfolio());
+      }));
+      const modal = document.getElementById('mediaModal'), modalImage = document.getElementById('modalImage'); function openImage(src){modalImage.src=src;modal.classList.add('open');document.body.style.overflow='hidden'} function closeModal(){modal.classList.remove('open');document.body.style.overflow=''} modal.querySelector('.modal-close').addEventListener('click',closeModal); modal.addEventListener('click',event=>{if(event.target===modal)closeModal()}); document.addEventListener('keydown',event=>{if(event.key==='Escape')closeModal()});
+      const portfolioSection = document.getElementById('portfolio');
+      new IntersectionObserver(entries=>entries.forEach(entry=>{
+        portfolioWarm=entry.isIntersecting;
+        if(portfolioWarm) warmPortfolioWindow().then(()=>{if(portfolioWarm)activatePortfolioSlide()});
+        else syncPortfolioMediaSources();
+      }),{rootMargin:'900px 0px'}).observe(portfolioSection);
+      new IntersectionObserver(entries=>entries.forEach(entry=>{portfolioVisible=entry.isIntersecting;if(portfolioVisible)playActivePortfolioVideo();else activePortfolioVideo()?.pause()}),{threshold:.2}).observe(portfolioSection);
+      document.addEventListener('visibilitychange',()=>{if(document.hidden)activePortfolioVideo()?.pause();else if(portfolioVisible)playActivePortfolioVideo()});
+      const resizePortfolio = () => {
+        if (portfolioDragging) return;
+        if (portfolioRenderedRadius !== portfolioWindowRadius()) buildPortfolio();
+        else setPortfolioTranslate(portfolioTargetTranslate(portfolioVirtualIndex),false);
+      };
+      if ('ResizeObserver' in window) new ResizeObserver(resizePortfolio).observe(portfolioStage);
+      else window.addEventListener('resize',resizePortfolio);
+      buildPortfolio();
 
       // Interactive grid light
       const shapeGrid = document.querySelector('.shape-grid'); document.getElementById('portfolio').addEventListener('pointermove',e=>{const rect=e.currentTarget.getBoundingClientRect();shapeGrid.style.setProperty('--mx',((e.clientX-rect.left)/rect.width*100)+'%');shapeGrid.style.setProperty('--my',((e.clientY-rect.top)/rect.height*100)+'%')});
@@ -1341,6 +1639,5 @@
       window.addEventListener('resize',()=>centerMiddlePlans());
     })();
   </script>
-  <script src="assets/js/portfolio-youtube.js?v=youtube-20261030" defer></script>
 </body>
 </html>
